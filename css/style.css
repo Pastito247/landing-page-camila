@@ -205,6 +205,23 @@ footer.site-footer {
   padding: 20px;
 }
 
+.herramientas {
+    background-color: var(--color-fondo-claro);
+}
+.herramientas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    font-size: 1.1rem;
+}
+.herramienta-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-primario);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 3rem;
