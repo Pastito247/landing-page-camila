@@ -6,15 +6,17 @@
   <title>Crea tu tienda online — Ebook de Camila Galarce</title>
   <meta name="description" content="Aprende paso a paso a crear tu tienda online y accede a una lista curada de proveedores en Chile. Incluye bonos: calendario de contenido y plantilla de costos." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Luxurious+Script&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --color-bg: #FDFBFA;         /* fondo blanco suave */
-      --color-card: #FFFFFF;       /* tarjetas */
-      --color-text: #1F1F1F;       /* texto principal */
-      --color-muted: #6B6B6B;      /* texto secundario */
-      --color-primary: #1E3A8A;    /* azul principal */
-      --color-accent: #F59E0B;     /* naranjo acento */
-      --color-rose: #F6D1C1;       /* rosa palo */
+      --color-bg: #FDFBFA;         
+      --color-card: #FFFFFF;       
+      --color-text-dark: #2E2E2E;  
+      --color-text-medium: #585858;
+      --color-text-light: #FFFFFF;
+      --color-primary: #1E3A8A;    
+      --color-accent: #F59E0B;     
+      --color-rose: #F6D1C1;       
 
       --radius-2xl: 22px;
       --radius-xl: 16px;
@@ -22,77 +24,135 @@
       --shadow-md: 0 10px 30px rgba(0,0,0,.10);
       --container: 1120px;
 
-      --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      --font-serif: "Times New Roman", ui-serif, Georgia, Cambria, Times, serif;
+      --font-sans: "Poppins", sans-serif;
+      --font-serif: "Times New Roman", serif;
       --font-script: "Luxurious Script", cursive;
     }
 
     html, body { margin: 0; padding: 0; }
     body {
       background: linear-gradient(180deg, var(--color-rose) 0%, var(--color-bg) 60%);
-      color: var(--color-text);
+      color: var(--color-text-dark);
       font-family: var(--font-sans);
-      line-height: 1.5;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
+
     .container { width: min(100%, var(--container)); margin: 0 auto; padding: 0 20px; }
-    .btn { display:inline-block; background: var(--color-primary); color:#fff; text-decoration:none; padding: 14px 22px; border-radius: 999px; font-weight: 700; box-shadow: var(--shadow-sm); transition: transform .08s ease, box-shadow .2s ease; letter-spacing:.2px; }
+
+    .btn {
+      display:inline-block; 
+      background: var(--color-primary);
+      color:#fff; 
+      text-decoration:none;
+      padding: 14px 22px; 
+      border-radius: 999px; 
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      transition: transform .08s ease, box-shadow .2s ease;
+    }
     .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
     .btn--ghost { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
 
-    .hero { position:relative; overflow: clip; padding: 72px 0 36px; background: linear-gradient(135deg, var(--color-rose) 0%, #fff 100%); }
-    .hero__grid { display:grid; gap: 28px; grid-template-columns: 1.1fr .9fr; align-items:center; }
-    .hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 56px); line-height: 1.08; margin:0 0 14px; color: var(--color-primary); }
-    .hero p.lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--color-muted); margin: 0 0 20px; }
-    .tag { display:inline-block; padding:6px 12px; border-radius: 999px; background: var(--color-accent); border:1px solid var(--color-accent); font-size: 12px; letter-spacing:.4px; text-transform: uppercase; color:#fff; margin-bottom: 14px; }
+    /* === HERO === */
+    .hero {
+      position:relative; 
+      overflow: clip; 
+      padding: 72px 0 36px;
+      background: linear-gradient(135deg, var(--color-rose) 0%, #fff 100%);
+    }
+    .hero__grid {
+      display:grid; 
+      gap: 28px; 
+      grid-template-columns: 1.1fr .9fr; 
+      align-items:center;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.08;
+      margin:0 0 14px;
+      color: var(--color-primary);
+    }
+    .hero p.lead { 
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: var(--color-text-medium);
+      margin: 0 0 20px; 
+    }
+    .tag {
+      display:inline-block;
+      padding:6px 12px;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color:#fff;
+      font-size: 12px;
+      letter-spacing:.4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .quote {
+      font-family: var(--font-script);
+      font-size: clamp(24px, 4vw, 40px);
+      color: var(--color-accent);
+      margin-top: 10px;
+    }
+
     .hero__media { position:relative; }
-    .card { background: var(--color-card); border: 1px solid #eee; border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); }
+    .card { background: var(--color-card); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); }
     .hero__mock { aspect-ratio: 4/5; overflow:hidden; }
     .hero__mock img { width:100%; height:100%; object-fit: cover; display:block; }
 
-    .quote { font-family: var(--font-script); font-size: clamp(24px, 4vw, 40px); line-height:1.2; margin-top: 10px; color: var(--color-accent); }
+    /* === TRUST === */
+    .trust {
+      padding: 16px 0;
+      background: var(--color-primary);
+      color: var(--color-text-light);
+    }
+    .trust__row { display:flex; gap:16px; flex-wrap: wrap; justify-content: center; font-size: 14px; }
 
-    .trust { padding: 16px 0 8px; background: var(--color-primary); color:#fff; }
-    .trust__row { display:flex; gap:16px; flex-wrap: wrap; justify-content: center; align-items:center; font-size: 14px; }
+    /* === SECTIONS === */
+    .section { padding: 72px 0; color: var(--color-text-dark); }
+    .section__title {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3.8vw, 40px);
+      text-align:center;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+    .section__sub {
+      text-align:center;
+      color: var(--color-text-medium);
+      margin: 0 auto 28px;
+      max-width: 720px;
+    }
 
-    .section { padding: 72px 0; }
-    .section__title { font-family: var(--font-serif); font-size: clamp(24px, 3.8vw, 40px); margin:0 0 18px; text-align:center; color: var(--color-primary); }
-    .section__sub { text-align:center; color: var(--color-muted); margin: 0 auto 28px; max-width: 720px; }
     .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .feature { padding: 22px; border: 1px solid #eee; border-radius: var(--radius-xl); background: #fff; transition:transform .2s ease; }
+    .feature {
+      padding: 22px;
+      border: 1px solid #eee;
+      border-radius: var(--radius-xl);
+      background: #fff;
+      transition:transform .2s ease;
+    }
     .feature:hover { transform:translateY(-3px); }
     .feature h3 { margin: 8px 0 6px; font-size: 18px; font-weight:600; color: var(--color-accent); }
-    .feature p { margin: 0; color: var(--color-muted); font-size: 15px; }
+    .feature p { margin: 0; color: var(--color-text-medium); }
 
-    .list { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
-    .list .item { display:flex; gap:12px; align-items:flex-start; padding:14px 16px; border:1px dashed var(--color-rose); border-radius: 14px; background:#fff; }
-    .badge { width:28px; height:28px; display:grid; place-items:center; border-radius: 8px; background: var(--color-accent); color:#fff; font-weight:700; font-size: 14px; }
-
-    .bonus { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
-    .bonus .card { padding: 18px; border-top:4px solid var(--color-primary); }
-
-    .author { display:grid; grid-template-columns: .9fr 1.1fr; gap: 26px; align-items:center; }
-    .author__photo { border-radius: var(--radius-2xl); overflow:hidden; border:3px solid var(--color-accent); }
-    .author__photo img { width:100%; height:100%; object-fit: cover; display:block; }
-    .author ul { padding-left: 18px; }
-
-    .pricing { text-align:center; border:1px solid #eee; border-radius: var(--radius-2xl); padding: 28px; background:#fff; box-shadow: var(--shadow-sm); }
-    .price { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); margin: 8px 0; color: var(--color-primary); }
-    .guarantee { font-size: 14px; color: var(--color-muted); }
-
-    details { border:1px solid #eee; border-radius: 14px; padding: 12px 16px; background:#fff; }
-    details + details { margin-top: 10px; }
-    summary { cursor:pointer; font-weight: 600; color: var(--color-primary); }
-
-    footer { padding: 42px 0; background: var(--color-primary); color:#fff; font-size: 14px; }
+    /* === FOOTER === */
+    footer {
+      padding: 42px 0;
+      background: var(--color-primary);
+      color: var(--color-text-light);
+      text-align: center;
+      font-size: 14px;
+    }
 
     @media (max-width: 960px) {
-      .hero__grid, .grid-3, .list, .bonus, .author { grid-template-columns: 1fr; }
-      .hero { padding-top: 46px; }
+      .hero__grid, .grid-3 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
   <header class="hero">
     <div class="container hero__grid">
@@ -105,7 +165,7 @@
           <a href="#comprar" class="btn">Quiero mi ebook ahora</a>
           <a href="#indice" class="btn btn--ghost">Ver lo que incluye</a>
         </div>
-        <p style="margin-top:12px; color:var(--color-muted); font-size: 14px;">Formato PDF • Acceso inmediato • Actualizaciones incluidas</p>
+        <p style="margin-top:12px; color:var(--color-text-medium); font-size: 14px;">Formato PDF • Acceso inmediato • Actualizaciones incluidas</p>
       </div>
       <div class="hero__media">
         <div class="card hero__mock">
@@ -114,6 +174,7 @@
       </div>
     </div>
   </header>
+
   <section class="trust">
     <div class="container">
       <div class="trust__row">
@@ -123,7 +184,9 @@
         <span>🔄 Actualizaciones sin costo</span>
       </div>
     </div>
-  <!-- BENEFICIOS PRINCIPALES -->
+  </section>
+
+    <!-- BENEFICIOS PRINCIPALES -->
   <section class="section">
     <div class="container">
       <h2 class="section__title">Lo que vas a lograr</h2>
@@ -235,14 +298,7 @@
   </section>
 
   <footer>
-    <div class="container" style="display:flex; justify-content: space-between; gap: 16px; flex-wrap:wrap;">
-      <div>© <span id="year"></span> Camila Galarce. Todos los derechos reservados.</div>
-      <div><a href="#" style="color:inherit;">Términos</a> · <a href="#" style="color:inherit;">Privacidad</a></div>
-    </div>
+    © 2025 Camila Galarce — Todos los derechos reservados.
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
