@@ -1,366 +1,201 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="https://i.postimg.cc/hGzSJFtV/341348235-651106946682404-8947403616167578108-n.jpg">
-  <title>Crea tu tienda online — Ebook de Camila Galarce</title>
-  <meta name="description" content="Aprende paso a paso a crear tu tienda online y accede a la lista de proveedores en Chile. Incluye bonos: calendario de contenido y plantilla de costos." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Luxurious+Script&display=swap" rel="stylesheet">
+  <title>Crea tu tienda online en 1 día</title>
+  <meta name="description" content="Un ebook guía y proveedores en Chile, para crear tu tienda online en 1 día." />
 
-  <style>
-    :root{
-      /* PALETA */
-      --color-bg: #FDFBFA;               /* blanco suave */
-      --color-card: #FFFFFF;             /* tarjetas */
-      --color-text-dark: #2E2E2E;        /* texto principal */
-      --color-text-medium: #585858;      /* texto secundario */
-      --color-text-light: #FFFFFF;       /* sobre fondos oscuros */
-      --color-primary: #1E3A8A;          /* azul principal */
-      --color-accent: #F59E0B;           /* naranjo detalle */
-      --color-rose: #F6D1C1;             /* rosa palo */
+  <!-- Tipografías: formal/profesional -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
 
-      /* UI */
-      --radius-2xl: 22px;
-      --radius-xl: 16px;
-      --shadow-sm: 0 6px 20px rgba(0,0,0,.06);
-      --shadow-md: 0 14px 34px rgba(0,0,0,.12);
-      --container: 1120px;
-
-      /* TIPOS */
-      --font-sans: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      --font-serif: "Times New Roman", Georgia, serif;
-      --font-script: "Luxurious Script", cursive;
-    }
-
-    /* BASE */
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body{
-      background: linear-gradient(180deg, var(--color-rose) 0%, var(--color-bg) 58%);
-      color: var(--color-text-dark);
-      font-family: var(--font-sans);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-    .container{ width: min(100%, var(--container)); margin: 0 auto; padding: 0 20px; }
-
-    a{ color: inherit; }
-
-    /* BOTONES */
-    .btn{
-      display:inline-block; 
-      background: var(--color-primary);
-      color:#fff; 
-      text-decoration:none;
-      padding: 14px 22px; 
-      border-radius: 999px; 
-      font-weight: 700;
-      letter-spacing:.2px;
-      box-shadow: var(--shadow-sm);
-      transition: transform .08s ease, box-shadow .25s ease, opacity .2s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md); }
-    .btn:focus-visible{ outline: 3px solid #9fb3ff; outline-offset: 2px; }
-    .btn--ghost{ background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
-    .btn--ghost:hover{ background: rgba(30,58,138,.06); }
-
-    /* HERO */
-    .hero{
-      position:relative; 
-      padding: clamp(48px, 8vw, 90px) 0 36px;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(246,209,193,.55) 0%, rgba(246,209,193,0) 70%), linear-gradient(135deg, var(--color-rose) 0%, #fff 100%);
-      overflow: clip;
-    }
-    .hero__grid{
-      display:grid; 
-      gap: clamp(20px, 3vw, 32px); 
-      grid-template-columns: 1.1fr .9fr; 
-      align-items:center;
-    }
-    .tag{
-      display:inline-block;
-      padding:7px 12px;
-      border-radius: 999px;
-      background: var(--color-accent);
-      color:#fff;
-      font-size: 12px;
-      letter-spacing:.4px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    h1{
-      font-family: var(--font-serif);
-      font-size: clamp(32px, 5vw, 58px);
-      line-height: 1.06;
-      margin:0 0 14px;
-      color: var(--color-primary);
-      letter-spacing: .2px;
-    }
-    .lead{
-      font-size: clamp(16px, 2.1vw, 20px);
-      color: var(--color-text-medium);
-      margin: 0 0 18px; 
-    }
-    .quote{
-      font-family: var(--font-script);
-      font-size: clamp(24px, 4vw, 40px);
-      color: var(--color-accent);
-      margin-top: 10px;
-    }
-    .hero__media{ position:relative; }
-    .card{ background: var(--color-card); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.04); }
-    .hero__mock{ aspect-ratio: 4/5; overflow:hidden; }
-    .hero__mock img{ width:100%; height:100%; object-fit: cover; display:block; }
-
-    /* TRUST BAR */
-    .trust{ padding: 14px 0; background: var(--color-primary); color: var(--color-text-light); }
-    .trust__row{ display:flex; gap:18px; flex-wrap: wrap; justify-content: center; font-size: 14px; opacity: .95; }
-
-    /* SECCIONES */
-    .section{ padding: clamp(56px, 7vw, 80px) 0; }
-    .section__title{
-      font-family: var(--font-serif);
-      font-size: clamp(24px, 3.8vw, 40px);
-      text-align:center;
-      color: var(--color-primary);
-      margin:0 0 10px;
-      letter-spacing:.2px;
-    }
-    .section__sub{
-      text-align:center;
-      color: var(--color-text-medium);
-      margin: 0 auto 28px;
-      max-width: 760px;
-    }
-
-    /* FEATURES */
-    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.5vw, 22px); }
-    .feature{
-      padding: 22px;
-      border: 1px solid #eee;
-      border-radius: var(--radius-xl);
-      background: #fff;
-      transition:transform .2s ease, box-shadow .25s ease;
-    }
-    .feature:hover{ transform:translateY(-3px); box-shadow: var(--shadow-sm); }
-    .feature strong{ display:block; margin-bottom: 6px; color: var(--color-accent); font-weight:700; }
-    .feature p{ margin: 0; color: var(--color-text-medium); font-size: 15px; }
-
-    /* LISTA DE CONTENIDOS */
-    .list{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 18px); }
-    .item{
-      display:flex; gap:12px; align-items:flex-start;
-      padding:14px 16px; border:1px dashed rgba(245,158,11,.35);
-      border-radius: 14px; background:#fff;
-    }
-    .badge{ width:28px; height:28px; display:grid; place-items:center; border-radius: 8px; background: var(--color-accent); color:#fff; font-weight:700; font-size: 14px; flex: 0 0 28px; }
-    .item small{ color: var(--color-text-medium); }
-
-    /* BONOS */
-    .bonus{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2.2vw, 18px); }
-    .bonus .card{ padding: 20px; border-top:4px solid var(--color-primary); }
-    .bonus h3{ margin: 6px 0 8px; font-size: 18px; color: var(--color-primary); }
-
-    /* AUTORA */
-    .author{ display:grid; grid-template-columns: .9fr 1.1fr; gap: clamp(18px, 3vw, 28px); align-items:center; }
-    .author__photo{ border-radius: var(--radius-2xl); overflow:hidden; border:3px solid var(--color-accent); }
-    .author__photo img{ width:100%; height:100%; object-fit: cover; display:block; }
-    .author ul{ padding-left: 18px; margin: 10px 0 0; color: var(--color-text-medium); }
-
-    /* PRECIO / CTA */
-    .pricing{
-      text-align:center; border:1px solid #eee; border-radius: var(--radius-2xl);
-      padding: clamp(22px, 3vw, 30px); background:#fff; box-shadow: var(--shadow-sm);
-      max-width: 720px; margin: 0 auto;
-    }
-    .price{ font-family: var(--font-serif); font-size: clamp(34px, 5vw, 48px); margin: 8px 0; color: var(--color-primary); }
-    .guarantee{ font-size: 14px; color: var(--color-text-medium); }
-
-    /* FAQ */
-    details{ border:1px solid #eee; border-radius: 14px; padding: 12px 16px; background:#fff; }
-    details + details{ margin-top: 10px; }
-    summary{ cursor:pointer; font-weight: 600; color: var(--color-primary); outline: none; }
-    details[open]{ box-shadow: var(--shadow-sm); border-color: rgba(30,58,138,.25); }
-
-    /* FOOTER */
-    footer{ padding: 42px 0; background: var(--color-primary); color: var(--color-text-light); text-align: center; font-size: 14px; }
-
-    /* RESPONSIVE */
-    @media (max-width: 960px){
-      .hero__grid, .grid-3, .list, .bonus, .author{ grid-template-columns: 1fr; }
-      .hero{ padding-top: 46px; }
-    }
-
-    /* ACCESIBILIDAD */
-    @media (prefers-reduced-motion: reduce){
-      *{ animation: none !important; transition: none !important; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container hero__grid">
-      <div>
-        <span class="tag">Ebook + Bonos descargables</span>
-        <h1>Crea tu tienda online desde cero</h1>
-        <p class="lead">Un paso a paso claro y práctico para lanzar tu marca, construir tu presencia en redes y acceder a la lista de proveedores más completa de Chile. Por <strong>Camila Galarce</strong>.</p>
-        <div class="quote" aria-hidden="true">El momento ideal no llega, se provoca.</div>
-
-        <div style="display:flex; gap:12px; flex-wrap: wrap; margin-top: 20px;">
-          <a href="#comprar" class="btn">Quiero mi ebook ahora</a>
-          <a href="#indice" class="btn btn--ghost" aria-label="Ver contenidos del ebook">Ver lo que incluye</a>
-        </div>
-        <p style="margin-top:12px; color:var(--color-text-medium); font-size: 14px;">Formato PDF • Acceso inmediato • Actualizaciones incluidas</p>
-      </div>
-
-      <div class="hero__media" aria-hidden="true">
-        <div class="card hero__mock">
-          <!-- Usa tu hosting/tus assets; dejo las urls que tenías online -->
-          <img src="https://i.postimg.cc/mZMhh4F7/45.jpg" alt="Ebook Crea tu tienda online — Camila Galarce" />
-        </div>
-      </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">Crea tu tienda</span>
+      </a>
+      <nav class="nav">
+        <a href="#incluye" class="nav-link">Qué incluye</a>
+        <a href="#acordeon" class="nav-link">Contenido</a>
+        <a href="#comprar" class="button button--sm">Comprar EBOOK</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- TRUST -->
-  <section class="trust" role="note">
-    <div class="container">
-      <div class="trust__row">
-        <span>📥 Descarga inmediata</span>
-        <span>🧩 Bonos exclusivos</span>
-        <span>🇨🇱 Proveedores en Chile</span>
-        <span>🔄 Actualizaciones sin costo</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFICIOS -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section__title">Lo que vas a lograr</h2>
-      <p class="section__sub">Claridad, orden y estrategia para pasar de la idea a la acción. Aprende a posicionarte, crear confianza y vender con una marca auténtica.</p>
-
-      <div class="grid-3">
-        <div class="feature card">
-          <strong>🎯 Mentalidad enfocada</strong>
-          <p>Responde las preguntas correctas, define tu propósito y toma decisiones con calma y dirección.</p>
+  <main>
+    <!-- HERO -->
+    <section class="hero section">
+      <div class="container grid hero-grid">
+        <div class="hero-copy" data-animate="fade-up">
+          <h1 class="title">Crea tu tienda online <span class="highlight">en 1 día</span></h1>
+          <p class="subtitle">Creado para personas visionarias que desean iniciar un negocio online con dirección, claridad, confianza y propósito.</p>
+          <p class="muted">No se trata solo de vender: se trata de crear algo que te represente, te dé seguridad y tenga sentido.</p>
+          <div class="cta-row">
+            <a id="comprar" href="#" class="button button--lg">¡Comprarlo ahora!</a>
+            <a href="#incluye" class="button button--ghost">Ver qué incluye</a>
+          </div>
+          <div class="badges">
+            <span class="badge">EBOOK DE GUÍA</span>
+            <span class="badge">PROVEEDORES EN CHILE</span>
+            <span class="badge">7 AÑOS DE EXPERIENCIA</span>
+          </div>
         </div>
-        <div class="feature card">
-          <strong>🛍️ Negocio online simple</strong>
-          <p>Elige qué vender, a quién servir y cómo presentar tu propuesta de valor sin complicarte.</p>
-        </div>
-        <div class="feature card">
-          <strong>📱 Redes que convierten</strong>
-          <p>Biografía efectiva en Instagram, estrategia entre TikTok e Instagram y comunicación auténtica.</p>
+        <div class="hero-media" data-animate="fade-in">
+          <div class="mockup">
+            <!-- Reemplaza con tu imagen -->
+            <img src="assets/1.jpg" alt="Mockup del ebook Crea tu tienda online" />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ÍNDICE -->
-  <section id="indice" class="section" style="background: #fff;">
-    <div class="container">
-      <h2 class="section__title">Dentro del ebook</h2>
-      <p class="section__sub">Contenido práctico listo para aplicar hoy mismo:</p>
-
-      <div class="list">
-        <div class="item"><span class="badge">1</span><div><strong>Mentalidad para emprender</strong><br><small>Preguntas poderosas para iniciar con propósito.</small></div></div>
-        <div class="item"><span class="badge">2</span><div><strong>Crea tu negocio online</strong><br><small>Elección, definición y primeros pasos reales.</small></div></div>
-        <div class="item"><span class="badge">3</span><div><strong>Biografía eficaz en Instagram</strong><br><small>Qué haces, para quién y cómo comprarte.</small></div></div>
-        <div class="item"><span class="badge">4</span><div><strong>“Una web” para principiantes</strong><br><small>Orden, estrategia y ventas con herramientas simples.</small></div></div>
-        <div class="item"><span class="badge">5</span><div><strong>Instagram vs TikTok</strong><br><small>Cómo combinarlas para crecer y consolidar tu marca.</small></div></div>
-        <div class="item"><span class="badge">6</span><div><strong>Proveedores en Chile</strong><br><small>Red de contactos para empezar hoy mismo.</small></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BONOS -->
-  <section class="section" style="background: linear-gradient(180deg, #fff, var(--color-bg));">
-    <div class="container">
-      <h2 class="section__title">Bonos incluidos</h2>
-      <p class="section__sub">Aumenta tu claridad y organización con estos recursos extra:</p>
-
-      <div class="bonus">
-        <div class="card">
-          <h3>🗓️ Calendario de contenidos semanal</h3>
-          <p>Plantilla para planificar creación y edición por días. Ideal para crear constancia.</p>
+    <!-- AUTORA -->
+    <section class="author section">
+      <div class="container grid author-grid">
+        <div class="author-media" data-animate="fade-in">
+          <img src="assets/48.jpg" alt="Autora del ebook" class="author-photo"/>
         </div>
-        <div class="card">
-          <h3>📊 Plantilla de costos</h3>
-          <p>Controla gastos y márgenes desde el día uno con un archivo simple de usar.</p>
+        <div class="author-copy" data-animate="fade-up">
+          <h2 class="h2">CAMI <span class="highlight-alt">GALARCE</span></h2>
+          <p class="quote">“El éxito no está en tenerlo todo resuelto, sino en atreverte a empezar.”</p>
+          <p class="muted">Estratega en expansión de marca con enfoque en autoconocimiento.</p>
+          <p>En el año 2018 comencé con mi primer negocio: una marca de zapatos llamada <strong>Sofía Trends</strong>. Durante 7 años la construí con dedicación, hasta llegar al área mayorista y abrir mi propio local. Cuando estaba en la cima y expansión de mi marca, decidí cerrar. Me llamaron loca, pero yo lo llamé seguir a mi corazón.</p>
+          <p>Sentía que mi propósito no era solo vender productos, sino crear, inspirar y enseñar a otras personas a construir sus propios sueños. Hoy comparto un paso a paso práctico para que empieces tu tienda online y la lista de proveedores con los que trabajé por 7 años.</p>
+          <div class="cta-row">
+            <a href="#" class="button">Comprar EBOOK</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- AUTORA -->
-  <section class="section">
-    <div class="container author">
-      <div class="author__photo"><img src="https://i.postimg.cc/c1Y66W8K/48.jpg" alt="Camila Galarce" /></div>
-      <div>
-        <h2 class="section__title" style="text-align:left;">Hola, soy Camila Galarce</h2>
-        <p class="section__sub" style="text-align:left;">Emprendedora y estratega de marca. Mi propósito es inspirarte a creer en ti, ordenar tus ideas y ejecutar con claridad. <strong>El momento ideal no llega, se provoca.</strong></p>
-        <ul>
-          <li>7 años de experiencia construyendo negocios reales.</li>
-          <li>Metodología práctica enfocada en acción.</li>
-          <li>Enfoque humano: autenticidad por sobre la perfección.</li>
+    <!-- QUE INCLUYE -->
+    <section id="incluye" class="features section">
+      <div class="container narrow">
+        <h2 class="h2" data-animate="fade-up">¿QUÉ INCLUYE EL EBOOK <span class="nowrap">CREA TU TIENDA ONLINE EN 1 DÍA?</span></h2>
+        <ul class="feature-list" data-animate="fade-in">
+          <li class="feature-item">
+            <div class="icon">✔</div>
+            <div class="copy">
+              <h3 class="h3">Guía paso a paso</h3>
+              <p>Enfoque práctico para lo que realmente importa al lanzar tu tienda.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="icon">✔</div>
+            <div class="copy">
+              <h3 class="h3">Errores comunes y cómo evitarlos</h3>
+              <p>Aprendizajes reales para ahorrar tiempo, dinero y energía.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="icon">✔</div>
+            <div class="copy">
+              <h3 class="h3">Listado de 45 proveedores (Chile)</h3>
+              <p>Acceso a proveedores confiables de belleza, moda, accesorios y más.</p>
+            </div>
+          </li>
         </ul>
+        <div class="center">
+          <a href="#" class="button">Quiero el EBOOK</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PRECIO Y CTA -->
-  <section id="comprar" class="section">
-    <div class="container">
-      <div class="pricing" aria-labelledby="titulo-oferta">
-        <div class="tag" style="margin-bottom:10px;">Lanzamiento</div>
-        <h3 id="titulo-oferta" class="section__title" style="margin-bottom:6px;">Obtén el ebook + 2 bonos</h3>
-        <div class="price">$XX.XXX CLP</div>
-        <p class="section__sub" style="margin-bottom:16px;">Acceso inmediato. Descarga en PDF. Actualizaciones incluidas.</p>
-        <!-- Reemplaza # con tu enlace de checkout de Systeme.io -->
-        <a href="#" class="btn">Comprar ahora</a>
-        <p class="guarantee" style="margin-top:12px;">Pago seguro • Enlace directo de Systeme.io</p>
+    <!-- ACORDEÓN (Página 5 estilo) -->
+    <section id="acordeon" class="accordion section">
+      <div class="container narrow">
+        <h2 class="h2" data-animate="fade-up">Contenido clave del ebook</h2>
+        <div class="accordion-list" data-animate="fade-in">
+          <!-- Item 1 -->
+          <details class="acc" open>
+            <summary class="acc__summary">
+              <span>Mentalidad para emprender</span>
+              <svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="acc__content">
+              <p>Descubre la base de todo negocio: tu actitud. Aprenderás a calmar la mente, tomar decisiones desde la confianza y conectar antes de vender.</p>
+            </div>
+          </details>
+          <!-- Item 2 -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span>Eligiendo lo que te representa</span>
+              <svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="acc__content">
+              <p>Preguntas clave para definir qué vas a vender, cómo y por qué. Crea una tienda que te motive cada día.</p>
+            </div>
+          </details>
+          <!-- Item 3 -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span>Biografía para Instagram</span>
+              <svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="acc__content">
+              <p>Aprende a escribir una bio estratégica y atractiva que muestre tu esencia, conecte con tu cliente y te ayude a vender desde la primera impresión.</p>
+            </div>
+          </details>
+          <!-- Item 4 -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span>Crea tu catálogo en WhatsApp</span>
+              <svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="acc__content">
+              <p>Crea tu propio catálogo paso a paso para mostrar tus productos y vender de forma directa, rápida y organizada.</p>
+            </div>
+          </details>
+          <!-- Item 5 -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span>Instagram v/s TikTok</span>
+              <svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="acc__content">
+              <p>Entiende las diferencias entre ambas plataformas y aprende cuál se adapta mejor a tu negocio, estilo y tipo de cliente.</p>
+            </div>
+          </details>
+          <!-- Item 6 -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span>Listado de 45 proveedores (Chile)</span>
+              <svg class="chev" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="acc__content">
+              <p>Accede a una lista exclusiva de proveedores confiables en distintas áreas: belleza, moda, accesorios y más. Fruto de 7 años de experiencia.</p>
+            </div>
+          </details>
+        </div>
+        <p class="mantra" data-animate="fade-up">Olvídate de hacerlo “como se debe”. Emprender es desafiar lo establecido, crear desde el alma y confiar en tu ritmo.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="section" style="background:#fff;">
-    <div class="container">
-      <h2 class="section__title">Preguntas frecuentes</h2>
-      <details>
-        <summary>¿Cómo recibo el ebook?</summary>
-        <p>Al completar la compra, verás el enlace de descarga inmediato y también lo recibirás por correo.</p>
-      </details>
-      <details>
-        <summary>¿En qué formato está?</summary>
-        <p>PDF optimizado para escritorio y móvil.</p>
-      </details>
-      <details>
-        <summary>¿Qué incluyen los bonos?</summary>
-        <p>Calendario semanal de contenido (PDF/imagen) y plantilla de costos (archivo editable).</p>
-      </details>
-      <details>
-        <summary>¿Puedo pedir reembolso?</summary>
-        <p>Por tratarse de un producto digital con descarga inmediata, no hay reembolsos. Si tienes un problema con la descarga, escríbenos y lo resolvemos.</p>
-      </details>
-    </div>
-  </section>
+    <!-- CTA FINAL -->
+    <section class="cta section">
+      <div class="container center" data-animate="fade-in">
+        <h2 class="h2">Lista para empezar hoy</h2>
+        <p class="subtitle">Este ebook es el paso a paso real que te enfoca en lo que importa.</p>
+        <a href="#" class="button button--lg">Comprar EBOOK</a>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    © <span id="year"></span> Camila Galarce — Todos los derechos reservados.
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="small">© 2025 CAMI GALARCE. Todos los derechos reservados.</p>
+      <nav class="footer-nav">
+        <a href="#" class="muted">Política de privacidad</a>
+        <a href="#" class="muted">Términos</a>
+      </nav>
+    </div>
   </footer>
 
-  <script>
-    // Año dinámico + foco accesible al abrir un details
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('details').forEach(d => {
-      d.addEventListener('toggle', () => { if (d.open) d.querySelector('summary').focus(); });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

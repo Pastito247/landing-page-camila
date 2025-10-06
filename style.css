@@ -1,0 +1,240 @@
+/* =========================
+   Paleta (azul, rosa palo, naranja) + neutros
+   ========================= */
+:root{
+  --blue: #1E3A8A;         /* azul principal (profesional) */
+  --blue-600: #172F70;
+  --pink: #F6DCE5;         /* rosa palo sutil */
+  --orange: #F59E0B;       /* naranja acento */
+  --bg: #FFFCFA;           /* fondo cálido neutro */
+  --surface: #FFFFFF;
+  --card: #FAF7F5;
+  --ink: #1B2430;
+  --muted: #6B7280;
+  --ring: rgba(30,58,138,.35);
+  --shadow: 0 10px 30px rgba(27, 36, 48, 0.08);
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: Lato, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(900px 600px at 85% -10%, rgba(245,158,11,0.08), transparent 60%),
+    radial-gradient(900px 600px at 15% -10%, rgba(246,220,229,0.25), transparent 60%),
+    var(--bg);
+  line-height:1.6;
+}
+
+img{ max-width:100%; display:block; }
+a{ color: var(--blue); text-decoration: none; }
+.nowrap{ white-space: nowrap; }
+
+/* =========================
+   Layout
+   ========================= */
+.container{ width:min(1120px, 94vw); margin-inline:auto; }
+.section{ padding: clamp(48px, 6vw, 100px) 0; }
+.center{ text-align:center; }
+.narrow{ width:min(880px, 92vw); margin-inline:auto; }
+
+/* =========================
+   Tipografía
+   ========================= */
+.title, .h2{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  letter-spacing: -.01em;
+}
+.title{
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.08;
+  margin: 0 0 12px;
+  color: var(--blue);
+}
+.h2{
+  font-weight: 700;
+  font-size: clamp(24px, 3.6vw, 40px);
+  margin: 0 0 10px;
+  color: var(--blue);
+}
+.h3{
+  font-weight: 700;
+  font-size: clamp(16px, 2.2vw, 20px);
+  margin: 0 0 4px;
+}
+.subtitle{ font-size: clamp(16px, 2.3vw, 20px); margin: 0 0 8px; }
+.muted{ color: var(--muted); }
+.small{ font-size: 12px; }
+.highlight{ background: linear-gradient(120deg, var(--pink), #fff); padding: 0 .25em; border-radius: .25em; }
+.highlight-alt{ color: var(--orange); }
+
+/* =========================
+   Header
+   ========================= */
+.site-header{
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(30,58,138,0.12);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content: space-between;
+  padding: 14px 0;
+}
+.brand{ display:flex; align-items:center; gap:10px; font-weight:700; color: var(--ink); }
+.brand-mark{ display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; background: var(--blue); color:#fff; }
+.brand-text{ font-family: "Playfair Display", Georgia, serif; font-weight:700; }
+.nav{ display:flex; align-items:center; gap: 18px; }
+.nav-link{ color: var(--ink); opacity: .85; }
+.nav-link:hover{ opacity:1; }
+.nav-toggle{ display:none; flex-direction:column; gap:4px; background:none; border:0; }
+.nav-toggle span{ width:22px; height:2px; background: var(--ink); display:block; border-radius: 2px; }
+
+/* =========================
+   Buttons
+   ========================= */
+.button{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:10px;
+  height:44px; padding: 0 18px;
+  font-weight: 700;
+  color:#fff; background: linear-gradient(180deg, var(--blue), var(--blue-600));
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(30,58,138,.22);
+  transition: transform .15s ease, box-shadow .2s ease;
+  will-change: transform;
+}
+.button:hover{ transform: translateY(-1px); box-shadow: 0 14px 28px rgba(30,58,138,.28); }
+.button:focus{ outline: 2px solid var(--ring); outline-offset: 2px; }
+.button--ghost{
+  background: transparent; color: var(--blue); border: 1px solid rgba(30,58,138,.35);
+}
+.button--lg{ height: 52px; padding: 0 22px; font-size: 16px; }
+.button--sm{ height: 36px; padding: 0 12px; font-size: 14px; }
+
+/* =========================
+   Hero
+   ========================= */
+.hero-grid{
+  display:grid; grid-template-columns: 1.1fr .9fr; gap: clamp(18px, 3vw, 40px);
+  align-items:center;
+}
+.badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; }
+.badge{
+  padding: 6px 10px; border-radius: 999px;
+  background: var(--surface);
+  border:1px solid rgba(27,36,48,.08);
+  box-shadow: var(--shadow);
+  font-size:12px; color:#30364c;
+}
+.cta-row{ display:flex; gap:12px; margin: 16px 0 0; flex-wrap: wrap; }
+.mockup{ background: var(--surface); border:1px solid rgba(27,36,48,.08); border-radius: 16px; box-shadow: var(--shadow); padding: 14px; }
+.mockup img{ border-radius: 12px; }
+
+/* =========================
+   Author
+   ========================= */
+.author-grid{ display:grid; grid-template-columns: .9fr 1.1fr; gap: clamp(20px, 4vw, 48px); align-items:center; }
+.author-photo{
+  border-radius: 18px; box-shadow: var(--shadow);
+  border:1px solid rgba(27,36,48,.08);
+}
+.quote{
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight:600; font-size: clamp(18px, 2.6vw, 24px);
+  border-left: 4px solid var(--orange);
+  padding-left: 12px; margin: 4px 0 8px;
+}
+
+/* =========================
+   Features
+   ========================= */
+.features{ position: relative; }
+.features::before{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(600px 400px at 15% 0%, rgba(246,220,229,.35), transparent 60%);
+  pointer-events:none;
+}
+.feature-list{ display:grid; gap:14px; margin: 20px 0 26px; }
+.feature-item{
+  display:flex; gap:12px; background: var(--surface);
+  border:1px solid rgba(27,36,48,.08); border-radius: 14px;
+  padding: 14px; align-items:flex-start; box-shadow: var(--shadow);
+}
+.feature-item .icon{
+  width:26px; height:26px; display:grid; place-items:center;
+  border-radius: 8px; background: rgba(245,158,11,.12);
+  color: var(--orange); font-weight: 700;
+}
+
+/* =========================
+   Accordion (Página 5)
+   ========================= */
+.accordion .acc{
+  background: var(--surface);
+  border:1px solid rgba(27,36,48,.08);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 2px 10px;
+}
+.accordion .acc + .acc{ margin-top: 10px; }
+.acc__summary{
+  list-style: none; cursor: pointer;
+  display:flex; align-items:center; justify-content: space-between;
+  gap: 10px; padding: 14px 4px;
+  font-weight: 700; color:#252a41;
+}
+.acc__summary::-webkit-details-marker{ display:none; }
+.acc[open] .acc__summary { color: var(--blue); }
+.acc__content{
+  overflow: hidden;
+  padding: 0 4px 12px 4px;
+  color: #3b425b;
+}
+.chev{ transition: transform .25s ease; }
+.acc[open] .chev{ transform: rotate(180deg); }
+
+/* Animación de altura: mejora progresiva con :has() */
+@supports(selector(:has(*))) {
+  .acc{ transition: grid-template-rows .3s ease, padding .3s ease; display: grid; grid-template-rows: auto 0fr; }
+  .acc[open]{ grid-template-rows: auto 1fr; }
+  .acc__content{ overflow: hidden; }
+}
+
+/* =========================
+   CTA final
+   ========================= */
+.cta{
+  background:
+    linear-gradient(180deg, rgba(246,220,229,.40), transparent),
+    radial-gradient(600px 400px at 85% -10%, rgba(245,158,11,.12), transparent 60%);
+}
+.cta .h2{ margin-bottom: 6px; }
+
+/* =========================
+   Footer
+   ========================= */
+.site-footer{ border-top: 1px solid rgba(27,36,48,.08); background: #fff; }
+.footer-inner{ display:flex; justify-content: space-between; align-items:center; padding: 18px 0; gap: 10px; flex-wrap: wrap; }
+.footer-nav a + a{ margin-left: 14px; }
+
+/* =========================
+   Animaciones de entrada
+   ========================= */
+[data-animate]{ opacity: 0; transform: translateY(14px); }
+[data-animate].in-view{ opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+[data-animate='fade-in']{ transform: none; }
+[data-animate='fade-in'].in-view{ opacity: 1; transition: opacity .7s ease; }
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 960px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .author-grid{ grid-template-columns: 1fr; }
+  .nav{ display:none; }
+  .nav-toggle{ display:flex; }
+}
