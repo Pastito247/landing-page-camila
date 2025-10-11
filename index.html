@@ -1,326 +1,370 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crea tu tienda online en 1 día</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700;800&display=swap"
-    rel="stylesheet">
+  <title>Crea tu tienda online en 1 día — Curso</title>
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --azul: #0B4EA2;
-      --rosa: #F6CCD6;
-      --naranja: #FF8A00;
-      --crema: #FFFAF4;
-      --crema: #FFFAF4;
-      --crema: #FFFAF4;
-      --azul-osc: #0A397B;
-      --blanco: #ffffff;
-      --negro: #0f172a;
-      --hero-focus-x: 90%;
+    :root{
+      --azul:#0B4EA2;
+      --rosa:#F6CCD6;
+      --naranja:#FF8A00;
+      --crema:#FFF9F4;
+      --azul-osc:#0A397B;
+      --blanco:#ffffff;
+      --negro:#0f172a;
+      --hero-focus-x:88%;
+      --shadow: 0 18px 48px rgba(11,78,162,.20);
+      --radius-xl: 24px;
     }
-
-    * { box-sizing: border-box }
-    html, body { margin: 0; padding: 0 }
-
-    body {
-      font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--crema);
-      color: var(--negro);
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--negro);
+      background:
+       radial-gradient(1200px 600px at 15% -10%, rgba(246,204,214,.35), transparent),
+       radial-gradient(900px 500px at 110% 10%, rgba(11,78,162,.10), transparent),
+       linear-gradient(180deg,#fff,#fffaf7);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+    h1,h2,h3{font-family:'Playfair Display',serif;margin:0;color:#0f172a}
+    p{margin:0}
+    .wrap{max-width:1180px;margin-inline:auto;padding:0 22px}
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      margin: 0
+    /* Utils */
+    .btn{display:inline-block;padding:1rem 1.6rem;border-radius:9999px;font-weight:800;text-decoration:none;transition:transform .12s ease, box-shadow .25s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:var(--naranja);color:#fff;box-shadow:0 14px 32px rgba(255,138,0,.35)}
+    .btn-primary:hover{box-shadow:0 18px 44px rgba(255,138,0,.45)}
+    .btn-ghost{border:2px solid var(--azul);color:var(--azul);background:transparent}
+    .btn-ghost:hover{background:var(--azul);color:#fff}
+    .tag{display:inline-block;font-weight:800;background:var(--rosa);color:var(--azul-osc);padding:.45rem .8rem;border-radius:9999px;font-size:.85rem}
+
+    /* ---------------- HERO ---------------- */
+    .hero{
+      position:relative;
+      width:100%;
+      height:70vh;
+      overflow:hidden;
+      border-bottom-left-radius:var(--radius-xl);
+      border-bottom-right-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      isolation:isolate;
     }
-
-    .wrap { max-width: 1150px; margin-inline: auto;}
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 70vh;
-      overflow: hidden;
+    .hero img{
+      width:100%;height:100%;object-fit:cover;object-position:var(--hero-focus-x) center;display:block;
+      transform:scale(1.02);
+      filter:saturate(1.02) contrast(1.03);
     }
+    .hero .decor{position:absolute;inset:0;pointer-events:none;z-index:2}
+    .float{animation: float 7s ease-in-out infinite}
+    .float2{animation: float 8.5s ease-in-out infinite reverse}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    .hero img.bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: var(--hero-focus-x) center;
-      z-index: -1;
+    .hero-text{padding:3.5rem 0 2.5rem}
+    .hero-title{font-weight:700;line-height:1.03}
+    .hero-title span{display:block}
+    .hero-title .big{font-size:clamp(3rem,7vw,6.6rem);color:var(--naranja)}
+    .hero-title .mid{font-size:clamp(2.4rem,6vw,4.6rem);color:#0f172a}
+    .hero-title .script{font-style:italic;font-size:clamp(1.7rem,5vw,3.4rem);color:var(--azul)}
+
+    .lead{margin-top:.9rem;color:#334155;font-size:1.125rem;max-width:860px}
+    .cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
+
+    /* ---------------- TRUST BAR ---------------- */
+    .trust{padding:1.2rem 0;background:#fff}
+    .trust .row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:center}
+    .trust .pill{display:flex;align-items:center;gap:.5rem;background:#fff;border:1px solid #e5e7eb;border-radius:9999px;padding:.5rem .8rem;font-weight:700;color:#0a2f66;box-shadow:0 8px 20px rgba(0,0,0,.05)}
+
+    /* ---------------- BENEFICIOS ---------------- */
+    .benefits{padding:3rem 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .card{background:#fff;border:1px solid #eef0f4;border-radius:18px;padding:1.2rem;box-shadow:0 14px 34px rgba(15,36,94,.08);position:relative;overflow:hidden}
+    .card h3{font-size:1.35rem;margin-bottom:.35rem}
+    .card p{color:#374151}
+    .corner-svg{position:absolute;right:-18px;top:-18px;opacity:.25}
+
+    /* ---------------- VIDEO / MOCKUP ---------------- */
+    .video{padding:2.5rem 0}
+    .mock{background:#0b4ea2;padding:1rem;border-radius:20px;color:#e6eeff;box-shadow:var(--shadow)}
+    .mock-inner{background:#000;border-radius:14px;aspect-ratio:16/9;display:grid;place-items:center;overflow:hidden}
+    .mock-note{font-size:.9rem;opacity:.8;text-align:center;margin-top:.5rem}
+
+    /* ---------------- CURRÍCULO ---------------- */
+    .curriculum{padding:3rem 0;background:var(--crema)}
+    .accordion{max-width:900px;margin:1.2rem auto 0;display:grid;gap:.8rem}
+    .acc-item{background:#fff;border:1px solid #e8eaf0;border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(15,36,94,.06)}
+    .acc-btn{width:100%;text-align:left;background:linear-gradient(90deg,var(--naranja),#ffa63a);color:#fff;border:none;display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;font-weight:800;font-size:1.05rem;cursor:pointer}
+    .acc-btn span.icon{inline-size:1.2rem;block-size:1.2rem;display:inline-grid;place-items:center;border-radius:9999px;border:2px solid #fff;font-weight:900}
+    .acc-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;background:#fff}
+    .acc-content{padding:.9rem 1.2rem 1.2rem;color:#334155}
+    .acc-item[aria-expanded="true"] .acc-panel{max-height:420px}
+
+    /* Tu guía */
+    .guide{background:var(--rosa);padding:4rem 0}
+    .guide-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+    .guide img{width:100%;border-radius:20px;box-shadow:0 20px 45px rgba(15,36,94,.12)}
+    .guide-text h2{font-size:2.5rem;margin-bottom:1rem;color:var(--azul-osc)}
+    .guide-text p{font-size:1.1rem;line-height:1.8;color:#1f2937}
+    .guide-text .name{font-size:1.6rem;font-weight:900;margin-bottom:.4rem;color:var(--naranja)}
+
+    /* Plan */
+    .pricing{padding:4rem 0;text-align:center}
+    .plan{background:#fff;border:1px solid #eef0f4;border-radius:24px;padding:2.5rem;max-width:460px;margin:auto;box-shadow:0 18px 48px rgba(11,78,162,.12)}
+    .plan h3{font-size:1.8rem;margin-bottom:.5rem}
+    .plan .price{font-weight:900;font-size:2.6rem;color:var(--azul);margin:.5rem 0}
+    .plan p{color:#374151;font-size:1rem;margin-bottom:1.5rem}
+    .plan .btn{font-size:1.1rem}
+    /* ---------------- FAQ ---------------- */
+    .faq{padding:2.5rem 0}
+    .faq .q{font-weight:800}
+    .faq .a{color:#374151}
+
+    /* ---------------- FOOTER ---------------- */
+    footer{padding:2.2rem 0;background:var(--azul);color:#e6eefc;margin-top:2rem;position:relative;overflow:hidden}
+    footer .tape{position:absolute;inset:0;opacity:.22}
+    footer p{margin:.25rem 0;text-align:center}
+
+    /* ---------------- SVG decoratives ---------------- */
+    .sparkle{position:absolute;right:12px;top:12px;opacity:.9}
+    .corner-svg{position:absolute;right:-18px;top:-18px;opacity:.25}
+
+    /* ---------------- Reveal ---------------- */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ---------------- Responsive ---------------- */
+    @media (max-width: 1024px){
+      .grid-3{grid-template-columns:1fr 1fr}
+      .plans{grid-template-columns:1fr 1fr}
     }
-
-    /* Elimina overlay y texto superpuesto del hero original */
-    .hero::after { display:none !important; }
-    .hero .hero-content { display:none !important; }
-
-    /* ===== TEXTO DEBAJO DEL HERO ===== */
-    .hero-text {
-      text-align: left;
-      padding: 3.5rem 0;
-      background: transparent;
+    @media (max-width: 820px){
+      .author-card{grid-template-columns:100px 1fr}
+      .author-avatar{width:100px;height:100px;border-radius:12px}
     }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      line-height: 1.05;
-    }
-    .hero-title span { display:block; }
-    .hero-title .big { font-size: clamp(6rem, 10vw, 8rem); color: var(--naranja); }
-    .hero-title .mid { font-size: clamp(4.8rem, 8vw, 6rem); color: #0f172a; }
-    .hero-title .script { font-style: italic; font-size: clamp(3rem, 6vw, 4.4rem); color: var(--azul); }
-
-    /* BLOQUE AZUL CON TEXTO Y CTA */
-    .blue-block {
-      background: var(--azul);
-      color: var(--blanco);
-      padding: 3.2rem 0
-    }
-
-    .blue-block h2 {
-      font-family: Inter, system-ui, sans-serif;
-      font-weight: 800;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      font-size: clamp(1.4rem, 2.6vw, 2.2rem);
-    }
-
-    .blue-block p {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-      line-height: 1.75;
-      margin: .75rem 0 2rem
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 1.6rem;
-      border-radius: 9999px;
-      font-weight: 800;
-      text-decoration: none
-    }
-
-    .btn-orange {
-      background: var(--naranja);
-      color: var(--blanco);
-      box-shadow: 0 10px 0 rgba(0, 0, 0, .08)
-    }
-
-    /* BANDA TRES COLUMNAS */
-
-    .strip-top { background: var(--rosa); color: var(--azul); font-weight: 800; text-align: center; padding: 1rem 0 }
-    .triptych { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; align-items: stretch }
-    .triptych .panel { min-height: 520px }
-    .triptych img { width: 100%; height: 100%; object-fit: cover; display: block }
-    .triptych .center { background: var(--azul); color: var(--blanco); display: grid; place-items: center; text-align: center }
-    .name { font-family: Inter, system-ui, sans-serif; font-weight: 900; line-height: 1; }
-    .name .cami { font-size: clamp(2.6rem, 5vw, 4rem); }
-    .name .galarce { font-size: clamp(2.6rem, 5vw, 4rem); color: var(--rosa) }
-    .swoosh { width: 70%; height: 6px; background: var(--naranja); border-radius: 9999px; margin: 1rem auto 0 }
-
-    /* BLOQUE PÁRRAFO ROSA + CTA */
-    .pink-block { background: var(--rosa); }
-    .pink-block h3 { color: var(--azul); font-size: clamp(1.5rem, 2.5vw, 2.2rem); text-align: center; margin-bottom: 1rem }
-    .pink-block p { color: #0a2f66; font-weight: 600; max-width: 950px; margin: 0 auto 1.75rem; text-align: center; font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.9 }
-    .pink-block .cta { text-align: center }
-
-    /* SECCIÓN ACORDEÓN NARANJA */
-    .accord { padding: 3rem 0; background: var(--crema) }
-    .accord .title-band { background: var(--azul); color: var(--rosa); font-style: italic; font-family: 'Playfair Display', serif; font-weight: 700; text-align: center; padding: 1rem 0; border-top-left-radius: 6px; border-top-right-radius: 6px }
-    .accord-list { max-width: 820px; margin: 1.75rem auto 0; display: grid; gap: 1rem }
-    .acc-item { background: transparent; border: none }
-    .acc-btn { width: 100%; background: var(--naranja); color: #fff; border: none; border-radius: 9999px; padding: 1.05rem 1.4rem; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer }
-    .acc-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease }
-    .acc-item[aria-expanded="true"] .acc-panel { max-height: 300px }
-    .acc-content { padding: .75rem 1rem 0; color: #1f2937; font-weight: 600 }
-
-    /* CTA AZUL */
-    .cta-blue { text-align: center; margin: 2rem 0 }
-    .cta-blue .btn { background: var(--azul); color: #fff }
-
-    /* FOOTER AZUL CON PÁRRAFOS */
-    .footer-blue { background: var(--azul); color: #e6eefc; padding: 3rem 0; margin-top: 2rem }
-    .footer-blue h3 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.3rem); text-align: center; margin: 0 0 1rem }
-    .footer-blue p { max-width: 980px; margin: .35rem auto; text-align: center; font-size: clamp(1rem, 1.3vw, 1.15rem); }
-
-    @media (max-width: 900px) {
-      .triptych { grid-template-columns: 1fr }
-      .triptych .panel { min-height: 380px }
-      .hero { height: 60vh }
-      .hero-text { padding: 3rem 6%; text-align: center; }
-      .hero-title .big { font-size: clamp(7rem, 12vw, 5rem) }
-      .hero-title .mid { font-size: clamp(4rem, 9vw, 4rem) }
-      .hero-title .script { font-size: clamp(5rem, 8vw, 3rem) }
+    @media (max-width: 720px){
+      .grid-3{grid-template-columns:1fr}
+      .plans{grid-template-columns:1fr}
+      .hero{height:58vh}
+      .hero-text{padding:2.2rem 0 1.4rem}
     }
   </style>
 </head>
-
 <body>
-  <!-- ===== IMAGEN SUPERIOR ===== -->
-  <header class="hero">
-    <img src="/1.jpg" alt="Hero" class="bg" />
-    <!-- hero-content original oculto por CSS -->
+
+  <!-- ================= HERO ================= -->
+  <header class="hero reveal">
+    <img src="1.jpg" alt="Hero del curso" />
+    <div class="decor" aria-hidden="true">
+      <!-- Cámara retro izquierda -->
+      <svg class="float" width="150" height="110" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute; left:4%; bottom:10%;">
+        <rect x="10" y="28" width="120" height="60" rx="12" fill="#FFE3EC" stroke="#C56D86" stroke-width="2"/>
+        <rect x="22" y="20" width="28" height="18" rx="4" fill="#FAD1E0" stroke="#C56D86" stroke-width="2"/>
+        <circle cx="88" cy="58" r="20" fill="#FFFFFF" stroke="#0B4EA2" stroke-width="4"/>
+        <circle cx="88" cy="58" r="10" fill="#FF8A00" opacity=".9"/>
+        <rect x="24" y="34" width="14" height="6" rx="3" fill="#0B4EA2" opacity=".9"/>
+        <circle cx="120" cy="40" r="4" fill="#0B4EA2"/>
+      </svg>
+      <!-- Cámara retro derecha -->
+      <svg class="float2" width="150" height="110" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute; right:6%; top:8%; transform:rotate(-12deg)">
+        <rect x="10" y="28" width="120" height="60" rx="12" fill="#FFE3EC" stroke="#C56D86" stroke-width="2"/>
+        <rect x="22" y="20" width="28" height="18" rx="4" fill="#FAD1E0" stroke="#C56D86" stroke-width="2"/>
+        <circle cx="88" cy="58" r="20" fill="#FFFFFF" stroke="#0B4EA2" stroke-width="4"/>
+        <circle cx="88" cy="58" r="10" fill="#FF8A00" opacity=".9"/>
+        <rect x="24" y="34" width="14" height="6" rx="3" fill="#0B4EA2" opacity=".9"/>
+        <circle cx="120" cy="40" r="4" fill="#0B4EA2"/>
+      </svg>
+      <!-- Estrellas -->
+      <svg class="float2" width="100" height="100" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute; right:12%; bottom:10%;">
+        <g fill="#FAD1E0">
+          <path d="M45 10l3 10 10 3-10 3-3 10-3-10-10-3 10-3 3-10z"/>
+          <circle cx="20" cy="70" r="4"/>
+          <circle cx="70" cy="60" r="3"/>
+        </g>
+      </svg>
+    </div>
   </header>
 
-  <!-- ===== TEXTO DEBAJO DEL HERO ===== -->
-  <section class="hero-text wrap">
+  <!-- Texto del hero -->
+  <section class="hero-text wrap reveal">
     <h1 class="hero-title">
       <span class="big">Crea</span>
       <span class="mid">tu tienda online</span>
       <span class="script">en 1 día.</span>
     </h1>
-  </section>
-
-  <!-- BLOQUE AZUL CON TEXTO Y CTA -->
-  <section class="blue-block">
-    <div class="wrap">
-      <h2>UN EBOOK DE GUÍA Y PROVEEDORES EN CHILE BASADOS EN 7 AÑOS DE EXPERIENCIA</h2>
-      <p>Creado para personas visionarias que desean iniciar un negocio online con dirección, claridad, confianza y
-        propósito. No se trata solo de vender: se trata de crear algo que te represente, te dé seguridad y tenga
-        sentido.</p>
-      <a href="#comprar" class="btn btn-orange">¡Comprarlo ahora!</a>
+    <p class="lead">Aprende a construir tu tienda con dirección, claridad, confianza y propósito. Un curso práctico basado en 7 años de experiencia real, con proveedores verificados en Chile y un paso a paso aterrizado.</p>
+    <div class="cta-row">
+      <a href="https://systeme.io/" class="btn btn-primary">Inscribirme ahora</a>
+      <a href="#curriculo" class="btn btn-ghost">Ver el contenido</a>
     </div>
   </section>
 
-  <!-- BANDA CON TRES COLUMNAS -->
-  <section class="strip">
-    <div class="strip-top">El éxito no está en tenerlo todo resuelto, sino en atreverte a empezar.</div>
-    <div class="triptych">
-      <div class="panel left"><img src="2.jpg" alt="Autora 1"></div>
-      <div class="panel center">
-        <div>
-          <div class="name">
-            <div class="cami">CAMI</div>
-            <div class="galarce">GALARCE</div>
-          </div>
-          <div class="swoosh"></div>
+  <!-- Confianza -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="row">
+        <div class="pill">🎯 Práctico y accionable</div>
+        <div class="pill">🧭 Paso a paso real</div>
+        <div class="pill">📦 Proveedores verificados</div>
+        <div class="pill">💬 Soporte por email</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="benefits wrap reveal">
+    <span class="tag">Transformación</span>
+    <h2 style="margin-top:.5rem">Lo que lograrás con este curso</h2>
+    <div class="grid-3" style="margin-top:1rem">
+      <div class="card">
+        <h3>Negocio con sentido</h3>
+        <p>Define una oferta que te representa y conecta con tus clientes desde tu esencia, no desde la presión.</p>
+        <svg class="corner-svg" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="90" cy="30" r="22" fill="#FFE3EC"/></svg>
+      </div>
+      <div class="card">
+        <h3>Armado técnico sin enredos</h3>
+        <p>Configura tu vitrina, catálogos y medios de pago con claridad. Sin tecnicismos innecesarios.</p>
+        <svg class="corner-svg" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="0" width="50" height="50" rx="10" fill="#FAD1E0"/></svg>
+      </div>
+      <div class="card">
+        <h3>Marketing que no agota</h3>
+        <p>Elige la red correcta (IG/TikTok), escribe una bio que vende y crea contenido sostenible.</p>
+        <svg class="corner-svg" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M70 0 L120 0 L120 50 Z" fill="#FFEDD8"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mockup / Video -->
+  <section class="video wrap reveal">
+    <div class="mock">
+      <div class="mock-inner">
+        <!-- Si tienes un video, inserta el iframe de systeme.io aquí -->
+        <span style="color:#93c5fd">Inserta aquí tu video de presentación (iframe)</span>
+      </div>
+      <div class="mock-note">Puedes reemplazar este bloque por el embebido de systeme.io sin romper el layout.</div>
+    </div>
+  </section>
+
+<!-- CONTENIDO DEL CURSO -->
+  <section class="curriculum reveal">
+    <div class="wrap">
+      <h2 style="margin-bottom:1rem;">Contenido del curso</h2>
+      <div class="accordion" id="accordion">
+        <div class="acc-item" aria-expanded="false">
+          <button class="acc-btn" aria-controls="m1" aria-expanded="false">Módulo 1 · Mentalidad para emprender</button>
+          <div id="m1" class="acc-panel"><div class="acc-content">Calmar la mente, tomar decisiones desde la confianza y conectar antes de vender.</div></div>
+        </div>
+        <div class="acc-item" aria-expanded="false">
+          <button class="acc-btn" aria-controls="m2" aria-expanded="false">Módulo 2 · Eligiendo lo que te representa</button>
+          <div id="m2" class="acc-panel"><div class="acc-content">Define qué vas a vender, cómo y por qué. Construye una tienda que te motive.</div></div>
+        </div>
+        <div class="acc-item" aria-expanded="false">
+          <button class="acc-btn" aria-controls="m3" aria-expanded="false">Módulo 3 · Biografía para Instagram</button>
+          <div id="m3" class="acc-panel"><div class="acc-content">Escribe una bio que refleje tu esencia y atraiga clientes desde la primera impresión.</div></div>
+        </div>
+        <div class="acc-item" aria-expanded="false">
+          <button class="acc-btn" aria-controls="m4" aria-expanded="false">Módulo 4 · Catálogo en WhatsApp</button>
+          <div id="m4" class="acc-panel"><div class="acc-content">Aprende a crear un catálogo atractivo para vender de forma directa y organizada.</div></div>
+        </div>
+        <div class="acc-item" aria-expanded="false">
+          <button class="acc-btn" aria-controls="m5" aria-expanded="false">Módulo 5 · Instagram vs TikTok</button>
+          <div id="m5" class="acc-panel"><div class="acc-content">Descubre qué red usar según tu producto y tiempo, y saca el máximo de cada plataforma.</div></div>
         </div>
       </div>
-      <div class="panel right"><img src="3.jpg" alt="Autora 2"></div>
     </div>
   </section>
 
-  <!-- BLOQUE ROSA CON PÁRRAFO Y CTA -->
-  <section class="pink-block">
-    <div class="wrap">
-      <h3>Estratega en expansión de marca con enfoque en autoconocimiento</h3>
-      <p>En el año 2018 comencé con mi primer negocio: una marca de zapatos llamada Sofía Trends. Durante 7 años la
-        construí con dedicación, hasta llegar al área mayorista y abrir mi propio local. Cuando estaba en la cima y
-        expansión de mi marca, decidí cerrar. Me llamaron loca, pero yo lo llamé seguir a mi corazón. Sentía que mi
-        propósito no era solo vender productos, sino crear, inspirar y enseñar a otras personas a construir sus propios
-        sueños. Hoy, aunque el sueño de revivir una marca de productos sigue en mí, quiero compartir contigo mi
-        experiencia real: un paso a paso práctico para que empieces tu tienda online y la lista de proveedores con los
-        que trabajé por 7 años.</p>
-      <div class="cta"><a href="#comprar" class="btn btn-orange">Comprar EBOOK</a></div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN: ¿QUÉ INCLUYE? CON BANNERS DESPLEGABLES NARANJA -->
-  <section class="accord" id="temas">
-    <div class="wrap">
-      <div class="title-band"><em>¿QUE INCLUYE EL EBOOK CREA TU TIENDA ONLINE EN 1 DÍA?</em></div>
-      <div class="accord-list" id="accordion">
-        <!-- 1 -->
-        <div class="acc-item" aria-expanded="false">
-          <button class="acc-btn" aria-controls="pa1" aria-expanded="false">Mentalidad para emprender
-            <span>+</span></button>
-          <div class="acc-panel" id="pa1">
-            <div class="acc-content">Descubre la base de todo negocio: tu actitud. Aprenderás a calmar la mente, tomar
-              decisiones desde la confianza y conectar antes de vender.</div>
-          </div>
-        </div>
-        <!-- 2 -->
-        <div class="acc-item" aria-expanded="false">
-          <button class="acc-btn" aria-controls="pa2" aria-expanded="false">Eligiendo lo que te representa
-            <span>+</span></button>
-          <div class="acc-panel" id="pa2">
-            <div class="acc-content">Preguntas clave para definir qué vas a vender, cómo y por qué. Crea una tienda que
-              te motive cada día.</div>
-          </div>
-        </div>
-        <!-- 3 -->
-        <div class="acc-item" aria-expanded="false">
-          <button class="acc-btn" aria-controls="pa3" aria-expanded="false">Biografía para instagram
-            <span>+</span></button>
-          <div class="acc-panel" id="pa3">
-            <div class="acc-content">Aprende a escribir una bio estratégica y atractiva que muestre tu esencia, conecte
-              con tu cliente y te ayude a vender desde la primera impresión.</div>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div class="acc-item" aria-expanded="false">
-          <button class="acc-btn" aria-controls="pa4" aria-expanded="false">Crea tu catálogo en whatsapp
-            <span>+</span></button>
-          <div class="acc-panel" id="pa4">
-            <div class="acc-content">Crea tu propio catálogo paso a paso para mostrar tus productos y vender de forma
-              directa, rápida y organizada.</div>
-          </div>
-        </div>
-        <!-- 5 -->
-        <div class="acc-item" aria-expanded="false">
-          <button class="acc-btn" aria-controls="pa5" aria-expanded="false">Instagram v/s tiktok <span>+</span></button>
-          <div class="acc-panel" id="pa5">
-            <div class="acc-content">Entiende las diferencias clave entre ambas plataformas para elegir la mejor
-              estrategia según tu producto, audiencia y tiempo disponible.</div>
-          </div>
-        </div>
-        <!-- 6 -->
-        <div class="acc-item" aria-expanded="false">
-          <button class="acc-btn" aria-controls="pa5" aria-expanded="false">Listado 45 proveedores (Chile)
-            <span>+</span></button>
-          <div class="acc-panel" id="pa5">
-            <div class="acc-content">Accede a una lista exclusiva de proveedores confiables en distintas áreas: belleza,
-              moda, accesorios y más. Fruto de 7 años de experiencia.</div>
-          </div>
-        </div>
+  <!-- TU GUÍA -->
+  <section class="guide reveal">
+    <div class="wrap guide-inner">
+      <img src="2.jpg" alt="Cami Galarce" />
+      <div class="guide-text">
+        <h2>Tu guía en este camino</h2>
+        <div class="name">Cami Galarce</div>
+        <p><strong>Estratega en expansión de marca con enfoque en autoconocimiento.</strong></p>
+        <p style="margin-top:1rem;">En 2018 fundé mi marca de zapatos Sofía Trends. La llevé al área mayorista y abrí mi propio local. En el punto más alto decidí cerrar, no por fracaso, sino por propósito. Hoy comparto contigo todo lo aprendido: cómo construir un negocio auténtico, rentable y con sentido.</p>
       </div>
-
-      <div class="cta-blue"><a href="#comprar" class="btn">Quiero el EBOOK</a></div>
     </div>
   </section>
 
-  <!-- BLOQUE AZUL FINAL SIN TESTIMONIOS -->
-  <section class="footer-blue">
+  <!-- PLAN -->
+  <section class="pricing reveal">
     <div class="wrap">
-      <h3>Olvídate de hacerlo "como se debe".</h3>
-      <p>Emprender es desafiar lo establecido, crear desde el alma y confiar en tu ritmo. Cuando trabajas con amor,
-        hasta el dinero te sigue.</p>
-      <p>Este ebook no es teoría: es el paso a paso real que te enfoca en lo que importa y los proveedores que me
-        hubiese encantado tener para evitar errores y estafas.</p>
+      <div class="plan">
+        <h3>Curso completo</h3>
+        <div class="price">$XX.XXX</div>
+        <p>Acceso inmediato y actualizaciones futuras.</p>
+        <a href="https://systeme.io/" class="btn btn-primary">Entrar al curso</a>
+      </div>
+    </div>
+  </section>
+ <!-- FAQ -->
+  <section class="faq wrap reveal">
+    <span class="tag">Preguntas frecuentes</span>
+    <h2 style="margin-top:.5rem">FAQ</h2>
+    <div class="grid-3" style="margin-top:1rem">
+      <div class="card">
+        <div class="q">¿Cuánto dura el curso?</div>
+        <p class="a">Está pensado para completarlo en 1 día intensivo, pero puedes avanzar a tu ritmo, sin límite.</p>
+      </div>
+      <div class="card">
+        <div class="q">¿Necesito experiencia previa?</div>
+        <p class="a">No. Todo está explicado paso a paso, desde cero.</p>
+      </div>
+      <div class="card">
+        <div class="q">¿Cómo accedo al contenido?</div>
+        <p class="a">Recibirás acceso al portal del curso en systeme.io con tu correo y contraseña.</p>
+      </div>
     </div>
   </section>
 
-  <!-- CTA de compra ancla -->
-  <div id="comprar"></div>
+  <footer>
+    <svg class="tape" width="100%" height="100%" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,260 C200,240 350,270 520,240 C700,210 950,260 1200,240" stroke="#FAD1E0" stroke-width="28" fill="none" opacity=".22"/>
+    </svg>
+    <p>© 2025 Cami Galarce · Todos los derechos reservados</p>
+    <p><a href="https://systeme.io/" style="color:#fff; font-weight:700; text-decoration:underline">Vender con systeme.io</a></p>
+  </footer>
 
+  <!-- ========== JS: Accordion + Reveal ========== -->
+  <!-- Scripts -->
   <script>
-    const items = document.querySelectorAll('.acc-item');
-    items.forEach(item => {
+    // Accordion
+    const accItems = document.querySelectorAll('.acc-item');
+    accItems.forEach(item => {
       const btn = item.querySelector('.acc-btn');
       const panel = item.querySelector('.acc-panel');
-      function toggle() {
-        const wasOpen = item.getAttribute('aria-expanded') === 'true';
-        items.forEach(i => { i.setAttribute('aria-expanded', 'false'); i.querySelector('.acc-btn').setAttribute('aria-expanded', 'false'); i.querySelector('.acc-panel').style.maxHeight = 0; i.querySelector('.acc-btn span').textContent = '+'; });
-        if (!wasOpen) {
-          item.setAttribute('aria-expanded', 'true');
-          btn.setAttribute('aria-expanded', 'true');
+      function toggle(){
+        const expanded = item.getAttribute('aria-expanded') === 'true';
+        accItems.forEach(i => {
+          i.setAttribute('aria-expanded','false');
+          i.querySelector('.acc-panel').style.maxHeight = 0;
+        });
+        if(!expanded){
+          item.setAttribute('aria-expanded','true');
           panel.style.maxHeight = panel.scrollHeight + 'px';
-          btn.querySelector('span').textContent = '–';
         }
       }
       btn.addEventListener('click', toggle);
-      btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
-      panel.style.maxHeight = 0;
     });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   </script>
 </body>
-
 </html>
