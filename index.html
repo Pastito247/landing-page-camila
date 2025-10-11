@@ -1,112 +1,490 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Crea tu tienda online — Proveedores y Guía</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --azul:#0B4EA2;
-    --rosa:#F6CCD6;
-    --naranja:#FF8A00;
-    --crema:#FFF9F4;
-    --azul-osc:#0A397B;
-    --blanco:#ffffff;
-    --negro:#0f172a;
-    --hero-focus-x:88%;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;
-    color:var(--negro);
-    background:
-      radial-gradient(1200px 600px at 15% -10%, rgba(246,204,214,.35), transparent),
-      radial-gradient(900px 500px at 110% 10%, rgba(11,78,162,.10), transparent),
-      linear-gradient(180deg,#fff,#fffaf7);
-    background-attachment: fixed;
-  }
-  h1,h2,h3{font-family:'Playfair Display',serif;margin:0;color:#0f172a}
-  p{margin:0}
-  .wrap{max-width:1160px;margin-inline:auto;padding:0 22px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crea tu tienda online — Proveedores y Guía</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --azul: #0B4EA2;
+      --rosa: #F6CCD6;
+      --naranja: #FF8A00;
+      --crema: #FFF9F4;
+      --azul-osc: #0A397B;
+      --blanco: #ffffff;
+      --negro: #0f172a;
+      --hero-focus-x: 88%;
+      --gallery-gap: 1.1rem;
+      /* separación lateral entre tarjetas */
+      --gallery-vertical-gap: 1.6rem;
+      /* aire arriba/abajo de cada tarjeta */
+      --gallery-radius: 16px;
+      --gallery-shadow: 0 12px 28px rgba(15, 36, 94, .10);
+      --gallery-ratio: 4 / 5;
+      /* look catálogo vertical */
+    }
 
-  /* HERO (imagen arriba, texto debajo) */
-  .hero{position:relative;width:100%;height:64vh;overflow:hidden;border-bottom-left-radius:22px;border-bottom-right-radius:22px;box-shadow:0 25px 70px rgba(11,78,162,.18)}
-  .hero img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-focus-x) center;display:block}
-  .hero-text{padding:2.6rem 0 2rem}
-  .hero-title{font-weight:700;line-height:1.03}
-  .hero-title span{display:block}
-  .hero-title .big{font-size:clamp(3rem,7vw,6.6rem);color:var(--naranja)}
-  .hero-title .mid{font-size:clamp(2.4rem,6vw,4.6rem);color:#0f172a}
-  .hero-title .script{font-style:italic;font-size:clamp(1.7rem,5vw,3.4rem);color:var(--azul)}
-  .lead{margin-top:.9rem;color:#334155;font-size:1.125rem;max-width:900px;justify-self: center;}
+    * {
+      box-sizing: border-box
+    }
 
-  /* CTA / Botones */
-  .btn{display:inline-block;padding:1rem 1.6rem;border-radius:9999px;font-weight:800;text-decoration:none;transition:transform .12s ease, box-shadow .25s ease}
-  .btn:active{transform:translateY(1px)}
-  .btn-primary{background:var(--naranja);color:#fff;box-shadow:0 14px 32px rgba(255,138,0,.35)}
-  .btn-primary:hover{box-shadow:0 18px 44px rgba(255,138,0,.45)}
-  .tag{display:inline-block;font-weight:800;background:var(--rosa);color:var(--azul-osc);padding:.45rem .8rem;border-radius:9999px;font-size:.85rem}
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
 
-  /* Intro */
-  .intro{padding:2.2rem 0 1.2rem}
-  .intro p{font-size:1.05rem;line-height:1.9;color:#1f2937}
-  .intro p + p{margin-top:1rem}
+    body {
+      font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--negro);
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(246, 204, 214, .35), transparent),
+        radial-gradient(900px 500px at 110% 10%, rgba(11, 78, 162, .10), transparent),
+        linear-gradient(180deg, #fff, #fffaf7);
+      background-attachment: fixed;
+    }
 
-  /* Opciones */
-  .options{padding:2rem 0}
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-  .card{
-    background:#fff;border:1px solid #eef0f4;border-radius:20px;padding:1.4rem;
-    box-shadow:0 16px 40px rgba(0,0,0,.06);display:grid;gap:.7rem
-  }
-  .card h3{font-size:1.4rem}
-  .price{font-weight:900;font-size:1.6rem;color:var(--azul);margin:.2rem 0 .6rem}
-  .card ul{margin:.4rem 0 0;padding-left:1.1rem;color:#374151;line-height:1.7}
-  .card li{margin:.2rem 0}
-  .badge{font-weight:800;color:#0a2f66}
-  .card .btn{margin-top:.6rem}
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      color: #0f172a
+    }
 
-  /* Galería */
-  .gallery{padding:2.6rem 0;background:var(--crema)}
-  .gallery .hint{color:#334155;margin:.4rem 0 1.1rem}
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
-  .ph{
-    background:#fff;border:1px dashed #e5e7eb;border-radius:14px;aspect-ratio:1/1;
-    display:grid;place-items:center;color:#64748b;font-size:.92rem
-  }
+    p {
+      margin: 0
+    }
 
-  /* “Tu guía” */
-  .guide{background:var(--rosa);padding:3.2rem 0}
-  .guide-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
-  .guide img{width:100%;border-radius:20px;box-shadow:0 20px 45px rgba(15,36,94,.12)}
-  .guide-text h2{font-size:2.5rem;margin-bottom:1rem;color:var(--azul-osc)}
-  .guide-text .name{font-size:1.6rem;font-weight:900;margin-bottom:.4rem;color:var(--naranja)}
-  .guide-text p{font-size:1.08rem;line-height:1.9;color:#1f2937}
-  .quote{margin-top:1.2rem;font-style:italic;color:#0a2f66}
+    .wrap {
+      max-width: 1160px;
+      margin-inline: auto;
+      padding: 0 22px
+    }
 
-  /* Footer CTA final breve */
-  .closing{padding:2.6rem 0 2.2rem;text-align:center}
-  .closing p{max-width:900px;margin:.5rem auto;color:#334155}
+    /* HERO (imagen arriba, texto debajo) */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 64vh;
+      overflow: hidden;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 22px;
+      box-shadow: 0 25px 70px rgba(11, 78, 162, .18)
+    }
 
-  footer{padding:2rem 0;background:var(--azul);color:#e6eefc;margin-top:1rem}
-  footer p{text-align:center;margin:.2rem 0}
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--hero-focus-x) center;
+      display: block
+    }
 
-  /* Reveal */
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
-  .reveal.visible{opacity:1;transform:translateY(0)}
+    .hero-text {
+      padding: 2.6rem 0 2rem
+    }
 
-  /* Responsive */
-  @media (max-width:1024px){.grid-3{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr 1fr}}
-  @media (max-width:820px){
-    .hero{height:58vh}
-    .guide-inner{grid-template-columns:1fr}
-    .grid-3{grid-template-columns:1fr}
-    .grid-4{grid-template-columns:1fr 1fr}
-  }
-</style>
+    .hero-title {
+      font-weight: 700;
+      line-height: 1.03
+    }
+
+    .hero-title span {
+      display: block
+    }
+
+    .hero-title .big {
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      color: var(--naranja)
+    }
+
+    .hero-title .mid {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      color: #0f172a
+    }
+
+    .hero-title .script {
+      font-style: italic;
+      font-size: clamp(1.7rem, 5vw, 3.4rem);
+      color: var(--azul)
+    }
+
+    .lead {
+      margin-top: .9rem;
+      color: #334155;
+      font-size: 1.125rem;
+      max-width: 900px;
+      justify-self: center;
+    }
+
+    /* CTA / Botones */
+    .btn {
+      display: inline-block;
+      padding: 1rem 1.6rem;
+      border-radius: 9999px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .12s ease, box-shadow .25s ease
+    }
+
+    .btn:active {
+      transform: translateY(1px)
+    }
+
+    .btn-primary {
+      background: var(--naranja);
+      color: #fff;
+      box-shadow: 0 14px 32px rgba(255, 138, 0, .35)
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 18px 44px rgba(255, 138, 0, .45)
+    }
+
+    .tag {
+      display: inline-block;
+      font-weight: 800;
+      background: var(--rosa);
+      color: var(--azul-osc);
+      padding: .45rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem
+    }
+
+    /* Intro */
+    .intro {
+      padding: 2.2rem 0 1.2rem
+    }
+
+    .intro p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #1f2937
+    }
+
+    .intro p+p {
+      margin-top: 1rem
+    }
+
+    /* Opciones */
+    .options {
+      padding: 2rem 0
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #eef0f4;
+      border-radius: 20px;
+      padding: 1.4rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .06);
+      display: grid;
+      gap: .7rem
+    }
+
+    .card h3 {
+      font-size: 1.4rem
+    }
+
+    .price {
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: var(--azul);
+      margin: .2rem 0 .6rem
+    }
+
+    .card ul {
+      margin: .4rem 0 0;
+      padding-left: 1.1rem;
+      color: #374151;
+      line-height: 1.7
+    }
+
+    .card li {
+      margin: .2rem 0
+    }
+
+    .badge {
+      font-weight: 800;
+      color: #0a2f66
+    }
+
+    .card .btn {
+      margin-top: .6rem
+    }
+
+    /* sección con aire general */
+    .gallery {
+      padding: 4rem 0 4rem;
+    }
+
+    /* grilla flexible y elegante */
+    .gallery .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--gallery-gap);
+    }
+
+    /* tarjeta con “passe-partout” (marco blanco) y sombra */
+    .gallery .card {
+      margin-block: var(--gallery-vertical-gap);
+      background: #fff;
+      border: 1px solid #eef0f4;
+      border-radius: var(--gallery-radius);
+      padding: .65rem;
+      /* marco blanco */
+      box-shadow: var(--gallery-shadow);
+    }
+
+    /* recorte vertical, imagen sin deformar */
+    .gallery .card .crop {
+      position: relative;
+      aspect-ratio: var(--gallery-ratio);
+      overflow: hidden;
+      border-radius: calc(var(--gallery-radius) - 4px);
+      background: #f3f4f6;
+    }
+
+    .gallery .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .35s ease, filter .35s ease;
+    }
+
+    .gallery .card:hover img {
+      transform: scale(1.035);
+      filter: saturate(1.05) contrast(1.03);
+    }
+
+    /* pie de foto opcional (puedes borrar si no lo usas) */
+    .gallery .caption {
+      font: 600 .92rem/1.5 Inter, system-ui, sans-serif;
+      color: #475569;
+      padding: .5rem .25rem .15rem;
+      text-align: center;
+    }
+
+    /* “Tu guía” */
+    .guide {
+      background: var(--rosa);
+      padding: 3.2rem 0
+    }
+
+    .guide-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center
+    }
+
+    .guide img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(15, 36, 94, .12)
+    }
+
+    .guide-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--azul-osc)
+    }
+
+    .guide-text .name {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: .4rem;
+      color: var(--naranja)
+    }
+
+    .guide-text p {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: #1f2937
+    }
+
+    .quote {
+      margin-top: 1.2rem;
+      font-style: italic;
+      color: #0a2f66
+    }
+
+    /* ==== FAQ desplegable ==== */
+    .faq {
+      padding: 3rem 0;
+    }
+
+    .faq .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: .8rem;
+    }
+
+    .faq details {
+      background: #fff;
+      border: 1px solid #e8eaf0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(15, 36, 94, .06);
+      transition: box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .faq details[open] {
+      box-shadow: 0 14px 34px rgba(15, 36, 94, .09);
+      border-color: #dbe0ea;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1rem 1.2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--naranja), #ffa63a);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      outline: none;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 9999px;
+      border: 2px solid #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .faq .answer {
+      padding: .9rem 1.2rem 1.2rem;
+      color: #334155;
+      background: #fff;
+    }
+
+    /* Footer CTA final breve */
+    .closing {
+      padding: 2.6rem 0 2.2rem;
+      text-align: center
+    }
+
+    .closing p {
+      max-width: 900px;
+      margin: .5rem auto;
+      color: #334155
+    }
+
+    footer {
+      padding: 2rem 0;
+      background: var(--azul);
+      color: #e6eefc;
+      margin-top: 1rem
+    }
+
+    footer p {
+      text-align: center;
+      margin: .2rem 0
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* Responsive */
+    /* responsive */
+    @media (max-width: 1200px) {
+      .gallery .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 780px) {
+      .gallery .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 460px) {
+      .gallery .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width:1024px) {
+      .grid-3 {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr 1fr 1fr
+      }
+    }
+
+    @media (max-width:820px) {
+      .hero {
+        height: 58vh
+      }
+
+      .guide-inner {
+        grid-template-columns: 1fr
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    /* ==== Lightbox minimal elegante ==== */
+.lb-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.78);
+  display:none; place-items:center; z-index:9999;
+}
+.lb-backdrop.open{ display:grid; }
+.lb-img{
+  max-width:min(92vw,1200px);
+  max-height:86vh;
+  border-radius:16px;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+.lb-close{
+  position:absolute; top:16px; right:20px;
+  background:#fff; color:#0B4EA2; border:none;
+  font-weight:900; border-radius:9999px; padding:.35rem .7rem; cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.2);
+}
+  </style>
 </head>
+
 <body>
 
   <!-- HERO -->
@@ -123,14 +501,19 @@
     </h1>
     <br>
     <br>
-    <p class="lead">En 7 años vendiendo zapatos en Chile construí una red de proveedores confiables y actualizados. Compilé contactos, aprendizajes y herramientas para que empieces tu tienda online más fácil, más rápido y sin riesgos. No necesitas experiencia previa: solo decisión, enfoque y actitud.</p>
+    <p class="lead">En 7 años vendiendo zapatos en Chile construí una red de proveedores confiables y actualizados.
+      Compilé contactos, aprendizajes y herramientas para que empieces tu tienda online más fácil, más rápido y sin
+      riesgos. No necesitas experiencia previa: solo decisión, enfoque y actitud.</p>
   </section>
 
   <!-- INTRO -->
   <section class="intro wrap reveal">
-    <span class="tag">Guía práctica y probada</span>
-    <p>Este recurso reúne proveedores con los que trabajé durante años, más mini guías, planillas y herramientas básicas para iniciar con orden, dirección y claridad.</p>
-    <p>Encuentra contactos verificados y actualizados, con tienda física y envíos a todo Chile. Elige la opción que más se ajuste a tu proyecto y empieza hoy.</p>
+    <p style="font-weight: bold;">Este recurso reúne proveedores con los que trabajé durante años, más mini guías,
+      planillas y herramientas básicas para iniciar con orden, dirección y claridad.
+      Encuentra contactos verificados y actualizados, con tienda física y envíos a todo Chile. Elige la opción que más
+      se ajuste a tu proyecto y empieza hoy.
+    </p>
+
   </section>
 
   <!-- OPCIONES -->
@@ -149,7 +532,8 @@
           <li>🎁 Extra: 5 hogar y decoración, 1 aparatología/cosmetología, 1 maquillaje, 1 lencería.</li>
         </ul>
         <a class="btn btn-primary" href="https://systeme.io/" target="_blank" rel="noopener">¡Comprarlo ahora!</a>
-        <p style="color:#475569;margin-top:.5rem">📦 Ideal para quienes inician un negocio de moda o amplían catálogo por temporada.</p>
+        <p style="color:#475569;margin-top:.5rem">📦 Ideal para quienes inician un negocio de moda o amplían catálogo
+          por temporada.</p>
       </article>
 
       <!-- Opción 2 -->
@@ -171,7 +555,8 @@
       <article class="card">
         <div class="badge">OPCIÓN 3</div>
         <h3>Proveedores + <strong>EBOOK completo</strong></h3>
-        <div class="price">$39.990 <span style="font-weight:700;color:#0f172a;font-size:.95rem">(Normal $59.980)</span></div>
+        <div class="price">$39.990 <span style="font-weight:700;color:#0f172a;font-size:.95rem">(Normal $59.980)</span>
+        </div>
         <ul>
           <li>45 proveedores verificados en Chile.</li>
           <li>Guía paso a paso para crear tu negocio online.</li>
@@ -184,23 +569,57 @@
     </div>
   </section>
 
-  <!-- GALERÍA en lugar de VIDEO -->
-  <section class="gallery reveal">
-    <div class="wrap">
-      <h2>Un vistazo a los productos</h2>
-      <p class="hint">Muestra representativa (recuerda que cambia por estación, tendencias y temporadas).</p>
-      <div class="grid-4">
-        <div class="ph">Foto 1</div>
-        <div class="ph">Foto 2</div>
-        <div class="ph">Foto 3</div>
-        <div class="ph">Foto 4</div>
-        <div class="ph">Foto 5</div>
-        <div class="ph">Foto 6</div>
-        <div class="ph">Foto 7</div>
-        <div class="ph">Foto 8</div>
-      </div>
+<!-- GALERÍA · Catálogo de moda -->
+<section class="gallery reveal" id="catalogo">
+  <div class="wrap">
+    <h2>Catálogo</h2>
+    <p class="hint" style="color:#334155;margin:.4rem 0 1.2rem">
+      Muestra representativa (cambia por estación, tendencias y temporadas).
+    </p>
+
+    <div class="grid-4">
+      <!-- Cada tarjeta abre el lightbox -->
+      <a class="card" href="1c.jpg">
+        <div class="crop"><img src="1c.jpg" alt="Catálogo 1" loading="lazy"></div>
+        <!-- <div class="caption">Modelo 1</div> -->
+      </a>
+
+      <a class="card" href="2c.jpg">
+        <div class="crop"><img src="2c.jpg" alt="Catálogo 2" loading="lazy"></div>
+      </a>
+
+      <a class="card" href="3c.jpg">
+        <div class="crop"><img src="3c.jpg" alt="Catálogo 3" loading="lazy"></div>
+      </a>
+
+      <a class="card" href="4c.jpg">
+        <div class="crop"><img src="4c.jpg" alt="Catálogo 4" loading="lazy"></div>
+      </a>
+
+      <a class="card" href="5c.jpg">
+        <div class="crop"><img src="5c.jpg" alt="Catálogo 5" loading="lazy"></div>
+      </a>
+
+      <a class="card" href="6c.jpg">
+        <div class="crop"><img src="6c.jpg" alt="Catálogo 6" loading="lazy"></div>
+      </a>
+
+      <a class="card" href="7c.jpg">
+        <div class="crop"><img src="7c.jpg" alt="Catálogo 7" loading="lazy"></div>
+      </a>
+
+      <a class="card" href="8c.jpg">
+        <div class="crop"><img src="8c.jpg" alt="Catálogo 8" loading="lazy"></div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Lightbox (colócalo una sola vez antes de </body>) -->
+<div class="lb-backdrop" id="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Cerrar">×</button>
+  <img class="lb-img" src="" alt="Imagen ampliada">
+</div>
 
   <!-- TU GUÍA: CAMI GALARCE -->
   <section class="guide reveal" id="guia">
@@ -211,8 +630,12 @@
         <h2>Tu guía</h2>
         <div class="name">Cami Galarce</div>
         <p><strong>Estratega en expansión de marca con enfoque en autoconocimiento.</strong></p>
-        <p style="margin-top:1rem">En 2018 comencé con mi primer negocio: una marca de zapatos llamada Sofía Trends. Durante 7 años la construí con dedicación, hasta llegar al área mayorista y abrir mi propio local. Cuando estaba en la cima, decidí cerrar: no por fracaso, sino por propósito. Sentía que mi camino era crear, inspirar y enseñar a otras personas a construir sus propios sueños.</p>
-        <p style="margin-top:1rem">Hoy comparto contigo mi experiencia real: un paso a paso práctico para que empieces tu tienda online y la lista de proveedores con los que trabajé por años.</p>
+        <p style="margin-top:1rem">En 2018 comencé con mi primer negocio: una marca de zapatos llamada Sofía Trends.
+          Durante 7 años la construí con dedicación, hasta llegar al área mayorista y abrir mi propio local. Cuando
+          estaba en la cima, decidí cerrar: no por fracaso, sino por propósito. Sentía que mi camino era crear, inspirar
+          y enseñar a otras personas a construir sus propios sueños.</p>
+        <p style="margin-top:1rem">Hoy comparto contigo mi experiencia real: un paso a paso práctico para que empieces
+          tu tienda online y la lista de proveedores con los que trabajé por años.</p>
         <p class="quote">“El éxito no está en tenerlo todo resuelto, sino en atreverte a empezar.”</p>
       </div>
     </div>
@@ -221,9 +644,90 @@
   <!-- CTA final breve -->
   <section class="closing wrap reveal">
     <h2>Empieza tu tienda hoy</h2>
-    <p>Olvídate de hacerlo “como se debe”. Emprender es desafiar lo establecido, crear desde el alma y confiar en tu ritmo. Este material te enfoca en lo que importa y te conecta con proveedores reales para evitar errores y estafas.</p>
+    <p>Olvídate de hacerlo “como se debe”. Emprender es desafiar lo establecido, crear desde el alma y confiar en tu
+      ritmo. Este material te enfoca en lo que importa y te conecta con proveedores reales para evitar errores y
+      estafas.</p>
     <div style="margin-top:1.2rem">
       <a class="btn btn-primary" href="https://systeme.io/" target="_blank" rel="noopener">Ir a comprar</a>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES (Desplegable) -->
+  <section class="faq wrap reveal" id="faq">
+    <span class="tag" style="margin-bottom: 15px;">💬 Preguntas frecuentes</span>
+    <h2 style="margin-top:.6rem;margin-bottom:1.4rem;justify-self: center;">Preguntas frecuentes (FAQ)</h2>
+
+    <div class="faq-list">
+      <details>
+        <summary>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
+            <path d="M12 2L13.2 8H20L14.4 12L16 18L12 14.8L8 18L9.6 12L4 8H10.8L12 2Z" fill="#F6CCD6" />
+          </svg>
+          ¿Los proveedores hacen envíos a regiones?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="answer">Sí. Todos los proveedores hacen envíos a todo Chile por distintas agencias.</div>
+      </details>
+
+      <details>
+        <summary>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
+            <path d="M12 2L13.2 8H20L14.4 12L16 18L12 14.8L8 18L9.6 12L4 8H10.8L12 2Z" fill="#0B4EA2" />
+          </svg>
+          ¿Puedo comprar si recién estoy comenzando?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="answer">Claro, este material está diseñado para personas que están iniciando y necesitan una base
+          segura.</div>
+      </details>
+
+      <details>
+        <summary>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
+            <path d="M12 2L13.2 8H20L14.4 12L16 18L12 14.8L8 18L9.6 12L4 8H10.8L12 2Z" fill="#F6CCD6" />
+          </svg>
+          ¿Puedo revender este material?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="answer">No. El contenido de este ebook y los listados tienen derechos de autor. Su venta o difusión
+          no autorizada está penada por ley.</div>
+      </details>
+
+      <details>
+        <summary>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
+            <path d="M12 2L13.2 8H20L14.4 12L16 18L12 14.8L8 18L9.6 12L4 8H10.8L12 2Z" fill="#0B4EA2" />
+          </svg>
+          ¿Cómo recibo el material una vez comprado?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="answer">Te llegará automáticamente a tu correo electrónico con el link de descarga y todos los
+          recursos incluidos.</div>
+      </details>
+
+      <details>
+        <summary>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
+            <path d="M12 2L13.2 8H20L14.4 12L16 18L12 14.8L8 18L9.6 12L4 8H10.8L12 2Z" fill="#F6CCD6" />
+          </svg>
+          ¿Los proveedores cambian con el tiempo?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="answer">Sí, y por eso actualizo el material periódicamente para mantenerlo al día con nuevos
+          contactos y stock vigente.</div>
+      </details>
+
+      <details>
+        <summary>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
+            <path d="M12 2L13.2 8H20L14.4 12L16 18L12 14.8L8 18L9.6 12L4 8H10.8L12 2Z" fill="#0B4EA2" />
+          </svg>
+          ¿Qué diferencia hay entre las opciones?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="answer">Las opciones 1 y 2 contienen rubros específicos (zapatos o vestuario) con extras, mientras
+          que la opción 3 es la guía completa con todo el contenido y los 45 proveedores.</div>
+      </details>
     </div>
   </section>
 
@@ -232,17 +736,54 @@
     <p>© 2025 Cami Galarce · Todos los derechos reservados</p>
   </footer>
 
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    (function () {
+      const blocks = document.querySelectorAll('.faq details');
+      blocks.forEach(d => {
+        const icon = d.querySelector('.faq-icon');
+        const setIcon = () => { if (icon) icon.textContent = d.open ? '–' : '+'; };
+        setIcon();
+        d.addEventListener('toggle', () => {
+          if (d.open) {
+            // Cerrar los demás
+            blocks.forEach(o => { if (o !== d) o.removeAttribute('open'); });
+          }
+          setIcon();
+        });
+      });
+    })();
+
+      // Lightbox simple para galería
+  (function(){
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('.lb-img');
+    const close = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; };
+
+    document.querySelectorAll('.gallery .card').forEach(card=>{
+      card.addEventListener('click', (e)=>{
+        e.preventDefault();
+        lbImg.src = card.getAttribute('href');
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden','false');
+      });
     });
-  }, {threshold: 0.12});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+
+    lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+  })();
+
+  </script>
 </body>
+
 </html>
