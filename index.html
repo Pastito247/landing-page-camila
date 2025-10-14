@@ -199,7 +199,7 @@
     .price {
       font-weight: 900;
       font-size: 1.6rem;
-      color: var(--azul);
+      color: rgb(230, 91, 91);
       margin: .2rem 0 .6rem
     }
 
@@ -465,23 +465,39 @@
     }
 
     /* ==== Lightbox minimal elegante ==== */
-.lb-backdrop{
-  position:fixed; inset:0; background:rgba(0,0,0,.78);
-  display:none; place-items:center; z-index:9999;
-}
-.lb-backdrop.open{ display:grid; }
-.lb-img{
-  max-width:min(92vw,1200px);
-  max-height:86vh;
-  border-radius:16px;
-  box-shadow:0 30px 80px rgba(0,0,0,.45);
-}
-.lb-close{
-  position:absolute; top:16px; right:20px;
-  background:#fff; color:#0B4EA2; border:none;
-  font-weight:900; border-radius:9999px; padding:.35rem .7rem; cursor:pointer;
-  box-shadow:0 8px 24px rgba(0,0,0,.2);
-}
+    .lb-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .78);
+      display: none;
+      place-items: center;
+      z-index: 9999;
+    }
+
+    .lb-backdrop.open {
+      display: grid;
+    }
+
+    .lb-img {
+      max-width: min(92vw, 1200px);
+      max-height: 86vh;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: #fff;
+      color: #0B4EA2;
+      border: none;
+      font-weight: 900;
+      border-radius: 9999px;
+      padding: .35rem .7rem;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+    }
   </style>
 </head>
 
@@ -502,23 +518,25 @@
     <br>
     <br>
     <p class="lead">En 7 años vendiendo zapatos en Chile construí una red de proveedores confiables y actualizados.
-      Compilé contactos, aprendizajes y herramientas para que empieces tu tienda online más fácil, más rápido y sin
-      riesgos. No necesitas experiencia previa: solo decisión, enfoque y actitud.</p>
+      Recopilé contactos, aprendizajes y herramientas para que empieces tu tienda online más fácil, más rápido y sin
+      riesgos. No necesitas experiencia previa: solo decisión, enfoque y actitud.
+      Este recurso reúne proveedores con los que trabajé durante años, más mini guías,
+      planillas y herramientas básicas para iniciar con orden, dirección y claridad.
+      Encuentra contactos verificados y actualizados, con tienda física y envíos a todo Chile. Elige la opción que más
+      se ajuste a tu proyecto y empieza hoy.
+    </p>
   </section>
 
   <!-- INTRO -->
   <section class="intro wrap reveal">
-    <p style="font-weight: bold;">Este recurso reúne proveedores con los que trabajé durante años, más mini guías,
-      planillas y herramientas básicas para iniciar con orden, dirección y claridad.
-      Encuentra contactos verificados y actualizados, con tienda física y envíos a todo Chile. Elige la opción que más
-      se ajuste a tu proyecto y empieza hoy.
+    <p style="font-weight: bold;">
     </p>
 
   </section>
 
   <!-- OPCIONES -->
   <section class="options wrap reveal" id="opciones">
-    <h2 style="margin-bottom:1rem">Elige tu opción</h2>
+    <h2 style="margin-bottom:1rem; justify-self: center;">Elige tu opción</h2>
     <div class="grid-3">
       <!-- Opción 1 -->
       <article class="card">
@@ -531,7 +549,11 @@
           <li>Incluye mini guía básica + Excel de orden.</li>
           <li>🎁 Extra: 5 hogar y decoración, 1 aparatología/cosmetología, 1 maquillaje, 1 lencería.</li>
         </ul>
-        <a class="btn btn-primary" href="https://systeme.io/" target="_blank" rel="noopener">¡Comprarlo ahora!</a>
+        <br>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="https://cammigalarce.systeme.io/opcion-1" target="_blank" rel="noopener"
+          style="height: 52px;">¡Comprarlo ahora!</a>
         <p style="color:#475569;margin-top:.5rem">📦 Ideal para quienes inician un negocio de moda o amplían catálogo
           por temporada.</p>
       </article>
@@ -542,12 +564,13 @@
         <h3>Proveedores de <strong>vestuario</strong> + extras</h3>
         <div class="price">$29.990</div>
         <ul>
-          <li>17 proveedores (dups Zara, confección nacional, jeans, conjuntos, abrigos, etc.).</li>
+          <li>17 proveedores (Dupe Zara, confección nacional, jeans, conjuntos, abrigos, etc.).</li>
           <li>Atención personalizada, despacho a todo Chile, actualización constante.</li>
           <li>Incluye mini guía básica + Excel de orden.</li>
           <li>🎁 Extra: 4 accesorios, 4 joyería, 1 maquillaje, 1 lencería, 1 aparatología/cosmetología.</li>
         </ul>
-        <a class="btn btn-primary" href="https://systeme.io/" target="_blank" rel="noopener">¡Comprarlo ahora!</a>
+        <a class="btn btn-primary" href="https://cammigalarce.systeme.io/opcion-2" target="_blank" rel="noopener"
+          style="height: 52px;">¡Comprarlo ahora!</a>
         <p style="color:#475569;margin-top:.5rem">📦 Perfecto para una tienda de ropa moderna y rentable.</p>
       </article>
 
@@ -563,63 +586,65 @@
           <li>Excel de orden + plantilla calendario de contenido mensual.</li>
           <li>Tu guía definitiva para lanzar con Instagram + catálogo de WhatsApp.</li>
         </ul>
-        <a class="btn btn-primary" href="https://systeme.io/" target="_blank" rel="noopener">¡Comprarlo ahora!</a>
-        <p style="color:#475569;margin-top:.5rem">💡 Ideal para emprender de forma práctica y con estructura.</p>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="https://cammigalarce.systeme.io/opcion-3" target="_blank" rel="noopener" style=" height: 52px;">¡Comprarlo ahora!</a>
+        <p style="color:#475569;margin-top:.5rem;">💡 Ideal para emprender de forma práctica y con estructura.</p>
       </article>
     </div>
   </section>
 
-<!-- GALERÍA · Catálogo de moda -->
-<section class="gallery reveal" id="catalogo">
-  <div class="wrap">
-    <h2>Catálogo</h2>
-    <p class="hint" style="color:#334155;margin:.4rem 0 1.2rem">
-      Muestra representativa (cambia por estación, tendencias y temporadas).
-    </p>
+  <!-- GALERÍA · Catálogo de moda -->
+  <section class="gallery reveal" id="catalogo">
+    <div class="wrap">
+      <h2 style="justify-self: center;">Catálogo</h2>
+      <p class="hint" style="color:#334155;margin:.4rem 0 1.2rem; justify-self: center">
+        Muestra representativa (cambia por estación, tendencias y temporadas).
+      </p>
 
-    <div class="grid-4">
-      <!-- Cada tarjeta abre el lightbox -->
-      <a class="card" href="1c.jpg">
-        <div class="crop"><img src="1c.jpg" alt="Catálogo 1" loading="lazy"></div>
-        <!-- <div class="caption">Modelo 1</div> -->
-      </a>
+      <div class="grid-4">
+        <!-- Cada tarjeta abre el lightbox -->
+        <a class="card" href="1c.jpg">
+          <div class="crop"><img src="1c.jpg" alt="Catálogo 1" loading="lazy"></div>
+          <!-- <div class="caption">Modelo 1</div> -->
+        </a>
 
-      <a class="card" href="2c.jpg">
-        <div class="crop"><img src="2c.jpg" alt="Catálogo 2" loading="lazy"></div>
-      </a>
+        <a class="card" href="2c.jpg">
+          <div class="crop"><img src="2c.jpg" alt="Catálogo 2" loading="lazy"></div>
+        </a>
 
-      <a class="card" href="3c.jpg">
-        <div class="crop"><img src="3c.jpg" alt="Catálogo 3" loading="lazy"></div>
-      </a>
+        <a class="card" href="3c.jpg">
+          <div class="crop"><img src="3c.jpg" alt="Catálogo 3" loading="lazy"></div>
+        </a>
 
-      <a class="card" href="4c.jpg">
-        <div class="crop"><img src="4c.jpg" alt="Catálogo 4" loading="lazy"></div>
-      </a>
+        <a class="card" href="4c.jpg">
+          <div class="crop"><img src="4c.jpg" alt="Catálogo 4" loading="lazy"></div>
+        </a>
 
-      <a class="card" href="5c.jpg">
-        <div class="crop"><img src="5c.jpg" alt="Catálogo 5" loading="lazy"></div>
-      </a>
+        <a class="card" href="5c.jpg">
+          <div class="crop"><img src="5c.jpg" alt="Catálogo 5" loading="lazy"></div>
+        </a>
 
-      <a class="card" href="6c.jpg">
-        <div class="crop"><img src="6c.jpg" alt="Catálogo 6" loading="lazy"></div>
-      </a>
+        <a class="card" href="6c.jpg">
+          <div class="crop"><img src="6c.jpg" alt="Catálogo 6" loading="lazy"></div>
+        </a>
 
-      <a class="card" href="7c.jpg">
-        <div class="crop"><img src="7c.jpg" alt="Catálogo 7" loading="lazy"></div>
-      </a>
+        <a class="card" href="7c.jpg">
+          <div class="crop"><img src="7c.jpg" alt="Catálogo 7" loading="lazy"></div>
+        </a>
 
-      <a class="card" href="8c.jpg">
-        <div class="crop"><img src="8c.jpg" alt="Catálogo 8" loading="lazy"></div>
-      </a>
+        <a class="card" href="8c.jpg">
+          <div class="crop"><img src="8c.jpg" alt="Catálogo 8" loading="lazy"></div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Lightbox (colócalo una sola vez antes de </body>) -->
-<div class="lb-backdrop" id="lightbox" aria-hidden="true">
-  <button class="lb-close" aria-label="Cerrar">×</button>
-  <img class="lb-img" src="" alt="Imagen ampliada">
-</div>
+  <!-- Lightbox (colócalo una sola vez antes de </body>) -->
+  <div class="lb-backdrop" id="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Cerrar">×</button>
+    <img class="lb-img" src="" alt="Imagen ampliada">
+  </div>
 
   <!-- TU GUÍA: CAMI GALARCE -->
   <section class="guide reveal" id="guia">
@@ -642,19 +667,10 @@
   </section>
 
   <!-- CTA final breve -->
-  <section class="closing wrap reveal">
-    <h2>Empieza tu tienda hoy</h2>
-    <p>Olvídate de hacerlo “como se debe”. Emprender es desafiar lo establecido, crear desde el alma y confiar en tu
-      ritmo. Este material te enfoca en lo que importa y te conecta con proveedores reales para evitar errores y
-      estafas.</p>
-    <div style="margin-top:1.2rem">
-      <a class="btn btn-primary" href="https://systeme.io/" target="_blank" rel="noopener">Ir a comprar</a>
-    </div>
-  </section>
+
 
   <!-- PREGUNTAS FRECUENTES (Desplegable) -->
   <section class="faq wrap reveal" id="faq">
-    <span class="tag" style="margin-bottom: 15px;">💬 Preguntas frecuentes</span>
     <h2 style="margin-top:.6rem;margin-bottom:1.4rem;justify-self: center;">Preguntas frecuentes (FAQ)</h2>
 
     <div class="faq-list">
@@ -731,6 +747,15 @@
     </div>
   </section>
 
+  <section class="closing wrap reveal">
+    <h2>Empieza tu tienda hoy</h2>
+    <p>Olvídate de hacerlo “como se debe”. Emprender es desafiar lo establecido, crear desde el alma y confiar en tu
+      ritmo. Este material te enfoca en lo que importa y te conecta con proveedores reales para evitar errores y
+      estafas.</p>
+    <div style="margin-top:1.2rem">
+      <a class="btn btn-primary" href="#opciones" rel="noopener">Ir a comprar</a>
+    </div>
+  </section>
   <!-- FOOTER -->
   <footer>
     <p>© 2025 Cami Galarce · Todos los derechos reservados</p>
@@ -763,25 +788,25 @@
       });
     })();
 
-      // Lightbox simple para galería
-  (function(){
-    const lb = document.getElementById('lightbox');
-    const lbImg = lb.querySelector('.lb-img');
-    const close = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; };
+    // Lightbox simple para galería
+    (function () {
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('.lb-img');
+      const close = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); lbImg.src = ''; };
 
-    document.querySelectorAll('.gallery .card').forEach(card=>{
-      card.addEventListener('click', (e)=>{
-        e.preventDefault();
-        lbImg.src = card.getAttribute('href');
-        lb.classList.add('open');
-        lb.setAttribute('aria-hidden','false');
+      document.querySelectorAll('.gallery .card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          lbImg.src = card.getAttribute('href');
+          lb.classList.add('open');
+          lb.setAttribute('aria-hidden', 'false');
+        });
       });
-    });
 
-    lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
-    lb.querySelector('.lb-close').addEventListener('click', close);
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
-  })();
+      lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+      lb.querySelector('.lb-close').addEventListener('click', close);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
 
   </script>
 </body>
