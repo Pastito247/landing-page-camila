@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crea tu tienda online — Proveedores y Guía</title>
+  <link rel="icon" href="./3.jpg">
+  <title>Proveedores para crear tu negocio online</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700;800&display=swap"
     rel="stylesheet">
@@ -19,13 +20,10 @@
       --negro: #0f172a;
       --hero-focus-x: 88%;
       --gallery-gap: 1.1rem;
-      /* separación lateral entre tarjetas */
       --gallery-vertical-gap: 1.6rem;
-      /* aire arriba/abajo de cada tarjeta */
       --gallery-radius: 16px;
       --gallery-shadow: 0 12px 28px rgba(15, 36, 94, .10);
       --gallery-ratio: 4 / 5;
-      /* look catálogo vertical */
     }
 
     * {
@@ -66,7 +64,6 @@
       padding: 0 22px
     }
 
-    /* HERO (imagen arriba, texto debajo) */
     .hero {
       position: relative;
       width: 100%;
@@ -122,7 +119,6 @@
       justify-self: center;
     }
 
-    /* CTA / Botones */
     .btn {
       display: inline-block;
       padding: 1rem 1.6rem;
@@ -156,7 +152,6 @@
       font-size: .85rem
     }
 
-    /* Intro */
     .intro {
       padding: 2.2rem 0 1.2rem
     }
@@ -171,7 +166,6 @@
       margin-top: 1rem
     }
 
-    /* Opciones */
     .options {
       padding: 2rem 0
     }
@@ -223,30 +217,25 @@
       margin-top: .6rem
     }
 
-    /* sección con aire general */
     .gallery {
       padding: 4rem 0 4rem;
     }
 
-    /* grilla flexible y elegante */
     .gallery .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: var(--gallery-gap);
     }
 
-    /* tarjeta con “passe-partout” (marco blanco) y sombra */
     .gallery .card {
       margin-block: var(--gallery-vertical-gap);
       background: #fff;
       border: 1px solid #eef0f4;
       border-radius: var(--gallery-radius);
       padding: .65rem;
-      /* marco blanco */
       box-shadow: var(--gallery-shadow);
     }
 
-    /* recorte vertical, imagen sin deformar */
     .gallery .card .crop {
       position: relative;
       aspect-ratio: var(--gallery-ratio);
@@ -269,7 +258,6 @@
       filter: saturate(1.05) contrast(1.03);
     }
 
-    /* pie de foto opcional (puedes borrar si no lo usas) */
     .gallery .caption {
       font: 600 .92rem/1.5 Inter, system-ui, sans-serif;
       color: #475569;
@@ -277,7 +265,6 @@
       text-align: center;
     }
 
-    /* “Tu guía” */
     .guide {
       background: var(--rosa);
       padding: 3.2rem 0
@@ -321,7 +308,6 @@
       color: #0a2f66
     }
 
-    /* ==== FAQ desplegable ==== */
     .faq {
       padding: 3rem 0;
     }
@@ -380,7 +366,6 @@
       background: #fff;
     }
 
-    /* Footer CTA final breve */
     .closing {
       padding: 2.6rem 0 2.2rem;
       text-align: center
@@ -404,7 +389,6 @@
       margin: .2rem 0
     }
 
-    /* Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(14px);
@@ -416,8 +400,6 @@
       transform: translateY(0)
     }
 
-    /* Responsive */
-    /* responsive */
     @media (max-width: 1200px) {
       .gallery .grid-4 {
         grid-template-columns: repeat(3, 1fr);
@@ -464,7 +446,6 @@
       }
     }
 
-    /* ==== Lightbox minimal elegante ==== */
     .lb-backdrop {
       position: fixed;
       inset: 0;
@@ -505,7 +486,6 @@
 
   <!-- HERO -->
   <header class="hero reveal">
-    <!-- Coloca tu hero real en 1.jpg (mín 1920×1080) -->
     <img src="1.jpg" alt="Hero: crea tu tienda online" />
   </header>
 
@@ -527,18 +507,15 @@
     </p>
   </section>
 
-  <!-- INTRO -->
   <section class="intro wrap reveal">
     <p style="font-weight: bold;">
     </p>
 
   </section>
 
-  <!-- OPCIONES -->
   <section class="options wrap reveal" id="opciones">
     <h2 style="margin-bottom:1rem; justify-self: center;">Elige tu opción</h2>
     <div class="grid-3">
-      <!-- Opción 1 -->
       <article class="card">
         <div class="badge">OPCIÓN 1</div>
         <h3>Proveedores de <strong>zapatos</strong> + extras</h3>
@@ -558,7 +535,6 @@
           por temporada.</p>
       </article>
 
-      <!-- Opción 2 -->
       <article class="card">
         <div class="badge">OPCIÓN 2</div>
         <h3>Proveedores de <strong>vestuario</strong> + extras</h3>
@@ -574,7 +550,6 @@
         <p style="color:#475569;margin-top:.5rem">📦 Perfecto para una tienda de ropa moderna y rentable.</p>
       </article>
 
-      <!-- Opción 3 -->
       <article class="card">
         <div class="badge">OPCIÓN 3</div>
         <h3>Proveedores + <strong>EBOOK completo</strong></h3>
@@ -594,7 +569,6 @@
     </div>
   </section>
 
-  <!-- GALERÍA · Catálogo de moda -->
   <section class="gallery reveal" id="catalogo">
     <div class="wrap">
       <h2 style="justify-self: center;">Catálogo</h2>
@@ -603,10 +577,8 @@
       </p>
 
       <div class="grid-4">
-        <!-- Cada tarjeta abre el lightbox -->
         <a class="card" href="1c.jpg">
           <div class="crop"><img src="1c.jpg" alt="Catálogo 1" loading="lazy"></div>
-          <!-- <div class="caption">Modelo 1</div> -->
         </a>
 
         <a class="card" href="2c.jpg">
@@ -640,16 +612,13 @@
     </div>
   </section>
 
-  <!-- Lightbox (colócalo una sola vez antes de </body>) -->
   <div class="lb-backdrop" id="lightbox" aria-hidden="true">
     <button class="lb-close" aria-label="Cerrar">×</button>
     <img class="lb-img" src="" alt="Imagen ampliada">
   </div>
 
-  <!-- TU GUÍA: CAMI GALARCE -->
   <section class="guide reveal" id="guia">
     <div class="wrap guide-inner">
-      <!-- Coloca la foto de Cami en 2.jpg -->
       <img src="2.jpg" alt="Cami Galarce" />
       <div class="guide-text">
         <h2>Tu guía</h2>
@@ -666,10 +635,6 @@
     </div>
   </section>
 
-  <!-- CTA final breve -->
-
-
-  <!-- PREGUNTAS FRECUENTES (Desplegable) -->
   <section class="faq wrap reveal" id="faq">
     <h2 style="margin-top:.6rem;margin-bottom:1.4rem;justify-self: center;">Preguntas frecuentes (FAQ)</h2>
 
@@ -756,13 +721,12 @@
       <a class="btn btn-primary" href="#opciones" rel="noopener">Ir a comprar</a>
     </div>
   </section>
-  <!-- FOOTER -->
+
   <footer>
     <p>© 2025 Cami Galarce · Todos los derechos reservados</p>
   </footer>
 
   <script>
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -780,7 +744,6 @@
         setIcon();
         d.addEventListener('toggle', () => {
           if (d.open) {
-            // Cerrar los demás
             blocks.forEach(o => { if (o !== d) o.removeAttribute('open'); });
           }
           setIcon();
@@ -788,7 +751,6 @@
       });
     })();
 
-    // Lightbox simple para galería
     (function () {
       const lb = document.getElementById('lightbox');
       const lbImg = lb.querySelector('.lb-img');
